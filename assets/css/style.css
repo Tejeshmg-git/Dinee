@@ -2118,46 +2118,107 @@ section {
   border-radius: 4px;
 }
 
-/* ===== MENU SECTION ===== */
+/* ===== MENU SECTION (Home V1) ===== */
 .menu {
-  background: #0B0B0C;
-  text-align: center;
+    background: var(--bg); /* Responsive to theme token */
+    text-align: center;
+}
+
+.menu .menu-header {
+    margin-bottom: 60px;
 }
 
 .menu h2 {
-  font-size: clamp(32px, 6vw, 52px);
-  margin: 15px 0 0;
+    font-size: clamp(34px, 7vw, 56px);
+    margin-top: 15px;
 }
 
 .menu-list {
-  max-width: 800px;
-  margin: 50px auto 0;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-item {
-  display: flex;
-  flex-direction: column; /* Mobile stack */
-  gap: 8px;
-  align-items: flex-start;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  transition: 0.3s ease;
-  text-align: left;
-}
-
-@media (min-width: 640px) {
-  .menu-item {
-    flex-direction: row;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
-  }
+    align-items: flex-end; /* Align to baseline of text */
+    padding: 30px 10px;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    gap: 10px;
 }
 
-.dish {
-    color: var(--text);
-    font-size: clamp(18px, 2.5vw, 24px);
-    font-family: var(--font-heading);
+/* Structural Dot Leader (No Masking Required) */
+.dot-leader {
+    flex-grow: 1;
+    height: 10px;
+    border-bottom: 2px dotted rgba(200,169,106,0.3); /* The dots */
+    margin: 0 10px 8px; /* Offset to sit between text */
+    display: none; /* Hide on mobile defaults */
 }
+
+@media (min-width: 768px) {
+    .dot-leader { display: block; }
+}
+
+/* MOBILE REFINEMENT: Stack menu items vertically */
+@media (max-width: 767px) {
+    .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px 5px;
+        gap: 8px;
+    }
+    .menu-item .course {
+        min-width: auto;
+        font-size: 11px;
+    }
+    .menu-item .dish {
+        text-align: left;
+        padding-left: 0;
+        font-size: 22px;
+    }
+    .dot-leader { display: none !important; }
+}
+
+.menu-item .course {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    font-weight: 600;
+    min-width: 140px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.menu-item .dish {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 3.5vw, 32px);
+    color: var(--text);
+    text-align: right;
+    line-height: 1.1;
+    z-index: 2;
+    background: transparent !important; /* Container removed as requested */
+    padding-left: 0;
+}
+
+
+/* Hover Interaction: High-Precision Highlight */
+.menu-item:hover {
+    border-bottom-color: var(--primary);
+    padding-left: 15px; /* Subtle indent */
+    padding-right: 5px;
+}
+
+.menu-item:hover .dish {
+    color: var(--primary);
+    transform: translateX(-5px);
+}
+
 
 /* ===== TESTIMONIALS & CTA ===== */
 .testimonials {

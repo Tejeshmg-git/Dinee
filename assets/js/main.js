@@ -54,14 +54,17 @@ function loadComponent(id, path) {
             return res.text();
         })
         .then(data => {
-            // Fix any absolute-like paths in the fetched HTML before injecting
+            // Fix both absolute-like ("/pages") and relative-like ("pages") paths in the fetched HTML before injecting
             const fixedData = data
-                .replace(/href="\/pages\//g, `href="${prefix}pages/`)
+                .replace(/(href|src)="\/pages\//g, `$1="${prefix}pages/`)
+                .replace(/(href|src)="pages\//g, `$1="${prefix}pages/`)
+                .replace(/(href|src)="\/assets\//g, `$1="${prefix}assets/`)
+                .replace(/(href|src)="assets\//g, `$1="${prefix}assets/`)
                 .replace(/href="\/index.html"/g, `href="${prefix}index.html"`)
-                .replace(/src="\/assets\//g, `src="${prefix}assets/`)
-                .replace(/href="\/assets\//g, `href="${prefix}assets/`);
+                .replace(/href="index.html"/g, `href="${prefix}index.html"`);
 
             container.innerHTML = fixedData;
+
             
             if (id === "navbar") {
                 initNavEvents();

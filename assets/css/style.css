@@ -1965,68 +1965,86 @@ section {
 
 
 /* ===== HOME V1 SECTIONS ===== */
-/* ===== ABOUT CHEF ===== */
-.about {
-  padding: 100px 60px;
+/* ===== ABOUT CHEF (The Culinary Narrative) ===== */
+.culinary-narrative {
+  padding: 100px 20px;
   background: #0D0D0E;
 }
 
-.about-container {
+.culinary-narrative .about-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  align-items: center;
+  gap: 50px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 @media (min-width: 1024px) {
-  .about-container {
+  .culinary-narrative .about-container {
     flex-direction: row;
-    gap: 80px;
-    align-items: stretch;
-    text-align: left;
+    align-items: center;
+    gap: 100px; /* Enhanced luxury breathing room */
   }
+
+  .culinary-narrative .about-image { flex: 1.1; }
+  .culinary-narrative .about-content { flex: 1; }
 }
 
-.about-image { width: 100%; }
-.about-image img {
+
+/* Image Framing: The Cinematic Offset */
+.culinary-narrative .image-frame {
+    position: relative;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.culinary-narrative .image-frame::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--primary);
+    z-index: 1;
+}
+
+.culinary-narrative .about-image img {
   width: 100%;
-  height: clamp(320px, 50vh, 550px);
+  height: clamp(350px, 60vh, 550px);
   object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 15px 15px 0 var(--primary);
+  position: relative;
+  z-index: 2;
+  box-shadow: 30px 30px 80px rgba(0,0,0,0.5);
 }
 
-.about-content {
-    flex: 1;
+.culinary-narrative .about-content {
+    text-align: left;
 }
 
-.about-content h2 {
-  font-size: clamp(34px, 7vw, 56px);
-  margin-bottom: 25px;
-  line-height: 1.1;
+.culinary-narrative h2 {
+    font-size: clamp(36px, 7vw, 52px);
+    line-height: 1.1;
+    margin: 10px 0 30px;
 }
 
-.about-content p {
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: clamp(16px, 1.8vw, 19px);
-  margin-bottom: 30px;
+.culinary-narrative .narrative-body p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 20px;
+    max-width: 500px;
 }
 
-.about-actions {
-    margin-top: 30px;
+.culinary-narrative .about-signature {
+    display: block;
+    font-family: var(--font-heading);
+    color: var(--primary);
+    font-size: 20px;
+    margin-top: 40px;
+    font-style: italic;
 }
 
-.about-signature {
-  display: block;
-  margin-top: 15px;
-  color: var(--primary);
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: 20px;
-}
 
 .experiences {
   background: #0B0B0C;

@@ -12,9 +12,12 @@
 // Global Interactions
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Load Components
-    loadComponent("navbar", "/components/navbar.html");
-    loadComponent("footer", "/components/footer.html");
+    // Auto-detect depth for relative component loading
+    const pathPrefix = (window.location.pathname.includes('/pages/') || window.location.pathname.includes('/pages/')) ? '../' : './';
+    
+    // Load Components with relative prefix
+    loadComponent("navbar", pathPrefix + "components/navbar.html");
+    loadComponent("footer", pathPrefix + "components/footer.html");
 
     // Scroll effect (theme-aware)
     window.onscroll = () => {
@@ -41,15 +44,25 @@ function loadComponent(id, path) {
     const container = document.getElementById(id);
     if (!container) return;
 
+    // Determine current depth to fix relative paths within components
+    const isSubPage = window.location.pathname.includes('/pages/');
+    const prefix = isSubPage ? '../' : './';
+
     fetch(path)
         .then(res => {
             if (!res.ok) throw new Error(`Could not load ${path}`);
             return res.text();
         })
         .then(data => {
-            container.innerHTML = data;
+            // Fix any absolute-like paths in the fetched HTML before injecting
+            const fixedData = data
+                .replace(/href="\/pages\//g, `href="${prefix}pages/`)
+                .replace(/href="\/index.html"/g, `href="${prefix}index.html"`)
+                .replace(/src="\/assets\//g, `src="${prefix}assets/`)
+                .replace(/href="\/assets\//g, `href="${prefix}assets/`);
+
+            container.innerHTML = fixedData;
             
-            // If it's the navbar, we might want to trigger specific logic
             if (id === "navbar") {
                 initNavEvents();
                 highlightActiveLink();
@@ -66,17 +79,15 @@ function initNavEvents() {
 }
 
 function highlightActiveLink() {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const currentLoc = window.location.href;
+    const navLinks = document.querySelectorAll('.nav-links a, .mobile-links a');
 
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        
-        // Simple matching logic
-        if (currentPath === linkPath || 
-            (currentPath === '/' && linkPath === '/index.html') ||
-            (currentPath === '/index.html' && linkPath === '/') ||
-            window.location.href.endsWith(linkPath)) {
+        // Normalize the link's absolute URL for comparison
+        const linkUrl = new URL(link.href, window.location.origin).href;
+        const currentUrl = new URL(window.location.href).href;
+
+        if (currentUrl === linkUrl || (currentUrl.endsWith('/') && linkUrl.endsWith('index.html'))) {
             link.classList.add('active');
         }
     });

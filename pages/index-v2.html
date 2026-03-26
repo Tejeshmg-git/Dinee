@@ -171,18 +171,23 @@
 
     <!-- ===== SECTION 7: INQUIRY FORM ===== -->
     <section class="form-section">
-        <div class="form-content">
-            <span class="label" style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 12px;">Get in Touch</span>
-            <h2 style="font-size: 48px; margin-top: 15px;">Book Your<br>Experience</h2>
-            <p style="color: var(--muted); margin-top: 20px; line-height: 1.6;">We invite you to experience the alchemy of private dining. Fill out the form, and our concierge will reach out to curate your event.</p>
+        <div class="container form-grid">
+            <div class="form-content">
+                <span class="tag">Get in Touch</span>
+                <h2>Book Your<br>Experience</h2>
+                <p>We invite you to experience the alchemy of private dining. Fill out the form, and our concierge will reach out to curate your event.</p>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Preferred Date (DD/MM/YYYY)" onfocus="(this.type='date')" required>
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
+            </div>
         </div>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="text" placeholder="Preferred Date (DD/MM/YYYY)" onfocus="(this.type='date')" required>
-            <button type="submit" class="submit-btn">Send Inquiry</button>
-        </form>
     </section>
+
 
     <!-- Footer Container (Loaded via JS) -->
     <div id="footer"></div>

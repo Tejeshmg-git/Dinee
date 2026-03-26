@@ -1,0 +1,293 @@
+/* ================= 404 ERROR PAGE STYLES ================= */
+:root {
+  --primary: #c8a96a; /* Unified luxury gold */
+}
+
+.error-page-body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0b0b0c;
+  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* BACKGROUND ANIMATION - CINEMATIC DEPTH */
+.bg {
+  position: fixed;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 25% 35%, rgba(200,169,106,0.06), transparent 45%),
+              radial-gradient(circle at 75% 65%, rgba(0,0,0,0.8), transparent 50%);
+  animation: moveBg 25s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes moveBg {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(-10%, -10%); }
+}
+
+/* CINEMATIC FLOATING PARTICLES */
+.floating-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floating-particles::before,
+.floating-particles::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(rgba(212,175,55,0.15) 1.5px, transparent 1px);
+  background-size: 60px 60px;
+  animation: floatParticles 60s linear infinite;
+  opacity: 0.6;
+}
+
+.floating-particles::after {
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 100px 100px;
+  animation: floatParticles 90s linear reverse infinite;
+  opacity: 0.3;
+}
+
+@keyframes floatParticles {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-150px, -250px); }
+}
+
+/* MOVING ATMOSPHERIC GLOW ORB */
+.glow-orb {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(200,169,106,0.12), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: moveOrb 25s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes moveOrb {
+  0%   { transform: translate(10%, 10%); }
+  25%  { transform: translate(80%, 30%); }
+  50%  { transform: translate(70%, 80%); }
+  75%  { transform: translate(30%, 70%); }
+  100% { transform: translate(10%, 10%); }
+}
+
+/* CONTAINER */
+.error-container {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* GLASS CARD MORPHISM */
+.glass-card {
+  position: relative;
+  z-index: 5;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.015);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 60px 70px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 600px;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+  animation: fadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* BRAND SIGNATURE MODULE */
+.brand-signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  animation: fadeUp 1s ease forwards 0.2s;
+  opacity: 0;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: breathe 5s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  from { transform: scale(1); filter: drop-shadow(0 0 5px rgba(200,169,106,0.1)); }
+  to { transform: scale(1.03); filter: drop-shadow(0 0 15px rgba(200,169,106,0.3)); }
+}
+
+.brand-image {
+  max-width: 50px;
+  height: auto;
+}
+
+.brand-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+/* ERROR TAG */
+.glass-card .tag {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #c6a15b, #f5d27a, #c6a15b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 404 CODE - CINEMATIC SCALE */
+.error-code {
+  font-family: 'Playfair Display', serif;
+  font-size: 140px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg, #c6a15b, #f5d27a, #c6a15b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 4s ease-in-out infinite alternate;
+  letter-spacing: -5px;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 15px rgba(212,175,55,0.2); }
+  to { text-shadow: 0 0 40px rgba(212,175,55,0.5); }
+}
+
+/* TYPOGRAPHY */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+p {
+  color: rgba(255,255,255,0.6);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* CTA SYSTEM */
+.cta-wrap {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.error-btn {
+  display: inline-block;
+  padding: 16px 35px;
+  border-radius: 50px;
+  background: var(--primary);
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.error-btn:hover {
+  transform: translateY(-4px);
+  background: #fff;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.btn-secondary-variant {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.btn-secondary-variant:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media(max-width: 600px) {
+  .error-page-body {
+    overflow-y: auto; /* Allow scrolling on small screens */
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .error-container {
+    height: auto;
+    min-height: 100vh;
+    padding: 60px 20px;
+    align-items: flex-start; /* Start from top if content is tall */
+  }
+
+  .glass-card { 
+    padding: 40px 20px; 
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+
+  .error-code { 
+    font-size: 80px; 
+    letter-spacing: -2px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .cta-wrap { 
+    flex-direction: column; 
+    gap: 12px;
+  }
+
+  .error-btn { 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 16px 20px;
+  }
+}
+

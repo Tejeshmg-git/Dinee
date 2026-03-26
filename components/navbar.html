@@ -1,0 +1,61 @@
+<header class="navbar">
+  <div class="container nav-wrapper">
+
+    <div class="nav-left">
+      <a href="/index.html" class="logo-link" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+        <img src="/assets/images/logo.png" alt="Dineé Logo" class="logo-img" style="height: 50px; width: 50px; object-fit: contain; border: none !important;">
+        <span class="brand">Dineé</span>
+      </a>
+    </div>
+
+    <nav class="nav-center">
+      <ul class="nav-links">
+
+        <li class="dropdown">
+          <a href="#">Home ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="/index.html">Home V1</a></li>
+            <li><a href="/pages/index-v2.html">Home V2</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="/pages/services.html">Services</a></li>
+        <li><a href="/pages/gallery.html">Gallery</a></li>
+        <li><a href="/pages/experience.html">Experience</a></li>
+        <li><a href="/pages/contact.html">Contact</a></li>
+
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button id="theme-toggle" title="Toggle Theme">🌙</button>
+      <button id="rtl-toggle" title="Toggle Direction">RTL</button>
+      <a href="/pages/contact.html" class="cta-btn">Book Now</a>
+      
+      <!-- Hamburger Toggle -->
+      <div class="menu-toggle" id="mobile-toggle">
+        <i class='bx bx-menu'></i>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Overlay Backdrop -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- Mobile Sidebar Drawer -->
+  <div class="mobile-menu" id="mobile-drawer">
+    <div class="close-btn" id="close-mobile-menu">&times;</div>
+    <div class="mobile-links">
+      <a href="/index.html">Home V1</a>
+      <a href="/pages/index-v2.html">Home V2</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/services.html">Services</a>
+      <a href="/pages/gallery.html">Gallery</a>
+      <a href="/pages/experience.html">Experience</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/contact.html" class="cta-btn" style="margin-top: 30px;">Book Now</a>
+    </div>
+  </div>
+</header>

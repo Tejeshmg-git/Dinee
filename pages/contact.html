@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Dineé - Begin Your Experience</title>
+    <meta name="description" content="Reach out to Dineé for private dining inquiries and bespoke culinary experiences. Every inquiry is handled with discretion and care.">
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=36">
+</head>
+<body class="contact-page">
+    
+    <div id="navbar"></div>
+
+    <!-- 1. HERO (MINIMAL + EDITORIAL) -->
+    <section class="hero hero-md reveal">
+        <div class="hero-bg" style="background-image: url('/assets/images/contact/hero%20section.jpg');"></div>
+        <div class="hero-content">
+            <span class="tag">Contact</span>
+            <h1>Begin Your Experience</h1>
+            <p>Every inquiry is handled with discretion and care.</p>
+        </div>
+    </section>
+
+    <!-- 2. CONTACT SPLIT (FORM + INFO) -->
+    <section class="contact-main reveal">
+        <!-- LEFT INFO -->
+        <div class="contact-info">
+            <span class="tag">Private Inquiries</span>
+            <h2>Crafting Your Story</h2>
+            <p>Share your vision, occasion, and preferences. We’ll craft a bespoke culinary experience tailored to you.</p>
+
+            <!-- EXPERIENCE TYPES -->
+            <div class="experience-tags">
+                <span>Private Dining</span>
+                <span>Event Catering</span>
+                <span>Studio Events</span>
+                <span>Consultation</span>
+            </div>
+
+            <!-- INFO EXTRA -->
+            <div class="info-extra">
+                <p><strong>Response Time:</strong> Within 24 hours</p>
+                <p><strong>Availability:</strong> Limited bookings per month</p>
+            </div>
+
+            <!-- PREMIUM INFO CARDS -->
+            <div class="contact-cards">
+                <div class="card reveal">
+                    <span>Email</span>
+                    <p>hello@dinee.com</p>
+                </div>
+
+                <div class="card reveal">
+                    <span>Inquiry</span>
+                    <p>+91 90000 12345</p>
+                </div>
+
+                <div class="card reveal">
+                    <span>Follow</span>
+                    <div class="social-links">
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="form-container">
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="select-wrapper">
+                        <select id="type" required>
+                            <option value="" disabled selected></option>
+                            <option value="private-dining">Private Dining</option>
+                            <option value="event-catering">Event Catering</option>
+                            <option value="culinary-class">Culinary Class</option>
+                        </select>
+                        <label for="type" class="select-label">Type of Experience</label>
+                    </div>
+                    <div class="select-wrapper">
+                        <select id="guests" required>
+                            <option value="" disabled selected></option>
+                            <option value="2-5">2-5 Guests</option>
+                            <option value="6-10">6-10 Guests</option>
+                            <option value="10plus">10+ Guests</option>
+                        </select>
+                        <label for="guests" class="select-label">Guest Count</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <textarea id="message" rows="6" required></textarea>
+                        <label for="message">Tell us about your request...</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+
+            <!-- CINEMATIC MAP -->
+            <div class="contact-map reveal">
+                <iframe 
+                    src="https://www.google.com/maps?q=Chennai&output=embed"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PRIVATE INQUIRY NOTE -->
+    <section class="contact-exclusive reveal">
+        <div class="exclusive-inner">
+            <div class="gold-line"></div>
+            <h2>By Invitation & Private Inquiry Only</h2>
+            <p>We maintain exclusivity to ensure every experience receives our undivided creative focus.</p>
+            <div class="gold-line"></div>
+        </div>
+    </section>
+
+    <!-- 4. LOCATION / PRESENCE (PREMIUM TOUCH) -->
+    <section class="contact-location reveal">
+        <div class="location-content">
+            <span class="tag">Global Presence</span>
+            <h2>Available Worldwide</h2>
+            <div class="location-grid">
+                <div class="loc-card reveal">
+                    <img src="/assets/images/contact/mumbai.jpg" alt="Mumbai">
+                    <div class="loc-info">
+                        <h3>Mumbai</h3>
+                        <p>India Studio</p>
+                    </div>
+                </div>
+                <div class="loc-card reveal">
+                    <img src="/assets/images/contact/Dubai.jpg" alt="Dubai">
+                    <div class="loc-info">
+                        <h3>Dubai</h3>
+                        <p>Middle East Hub</p>
+                    </div>
+                </div>
+                <div class="loc-card reveal">
+                    <img src="/assets/images/contact/london.jpg" alt="London">
+                    <div class="loc-info">
+                        <h3>London</h3>
+                        <p>European Presence</p>
+                    </div>
+                </div>
+                <div class="loc-card reveal">
+                    <img src="/assets/images/contact/newyork.jpg" alt="New York">
+                    <div class="loc-info">
+                        <h3>New York</h3>
+                        <p>North American Loft</p>
+                    </div>
+                </div>
+            </div>
+            <p class="location-bottom">Based in India, serving globally curated experiences.</p>
+        </div>
+    </section>
+
+    <!-- 5. FINAL SIGNATURE LINE (POLISHED) -->
+    <section class="contact-final reveal">
+        <i class='bx bx-message-square-detail final-icon'></i>
+        <div class="gold-line"></div>
+        <h2>Every great evening begins <br> with a conversation.</h2>
+        <p>Private Inquiry & Invitation Only</p>
+    </section>
+
+    <!-- Footer Container (Loaded via JS) -->
+    <div id="footer"></div>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Scroll Reveal
+            const revealElements = document.querySelectorAll(".reveal");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("revealed");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

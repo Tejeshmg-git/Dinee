@@ -1,0 +1,698 @@
+
+/* ==========================================================================
+   DINEÉ HOME V1 PREMIUM REFINEMENT
+   ========================================================================== */
+
+:root {
+  --gold: #C8A96A;
+  --gold-soft: #E6D3A3;
+  --bg: #F9F7F3;
+  --text: #1A1A1A;
+  --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ================= GLOBAL ANIMATION SYSTEM ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Global Reset Overrides for Home V1 */
+.home-v1 {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
+.home-v1 h1, 
+.home-v1 h2, 
+.home-v1 h3 { 
+  font-family: 'Cormorant Garamond', serif; 
+  color: var(--text);
+}
+
+.home-v1 section { 
+  padding: 80px 20px; 
+}
+
+/* Micro Interaction Base */
+.home-v1 .hover-lift {
+  transition: var(--transition);
+}
+
+.home-v1 .hover-lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Navbar Premium Behavior */
+.home-v1 #navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.home-v1 .navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  transition: var(--transition);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode override for Navbar */
+body.dark.home-v1 .navbar {
+  background: rgba(11, 11, 12, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-v1 .navbar.shrink {
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+body.dark.home-v1 .navbar.shrink {
+  background: rgba(11, 11, 12, 0.98) !important;
+}
+
+/* 1. HERO SECTION */
+.home-v1 .hero {
+  padding-top: 100px; /* Pushes content below navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  min-height: 85vh;
+}
+
+.home-v1 .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px; /* Controls equal vertical spacing */
+  padding: 40px 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.home-v1 .hero-bg {
+  animation: zoomHero 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomHero {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+/* Staggered Content Animation */
+.home-v1 .hero-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.home-v1 .hero-content > *:nth-child(1) { animation-delay: 0.2s; }
+.home-v1 .hero-content > *:nth-child(2) { animation-delay: 0.4s; }
+.home-v1 .hero-content > *:nth-child(3) { animation-delay: 0.6s; }
+.home-v1 .hero-content > *:nth-child(4) { animation-delay: 0.8s; }
+.home-v1 .hero-content > *:nth-child(5) { animation-delay: 1.0s; }
+
+.home-v1 .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.55) 60%,
+    rgba(0,0,0,0.75) 100%
+  );
+  z-index: 2;
+}
+
+.home-v1 .hero h1 {
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.1;
+  color: #FFFFFF !important;
+  margin: 0; /* Reset margin, controlled by gap */
+}
+
+.home-v1 .hero h1 .highlight {
+  color: var(--gold-soft);
+}
+
+.home-v1 .hero p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75) !important;
+  max-width: 600px;
+  margin: 0; /* Reset margin, controlled by gap */
+}
+
+.home-v1 .hero-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 6px 14px;
+  border: 1px solid rgba(200, 169, 106, 0.4);
+  border-radius: 20px;
+  background: rgba(200, 169, 106, 0.08);
+  font-weight: 600;
+}
+
+.home-v1 .hero-trust {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.6);
+  margin: 0; /* Reset margin */
+}
+
+.home-v1 .hero-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0; /* Reset margin */
+}
+
+.home-v1 .btn-gold,
+.home-v1 .btn-primary {
+  background: var(--gold);
+  color: #000 !important;
+  border-radius: 30px;
+  padding: 0 26px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.home-v1 .btn-gold::after,
+.home-v1 .btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.home-v1 .btn-gold:hover::after,
+.home-v1 .btn-primary:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.home-v1 .btn-gold:hover,
+.home-v1 .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(200, 169, 106, 0.4);
+}
+
+.home-v1 .btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white !important;
+  padding: 0 26px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.home-v1 .btn-outline:hover {
+  background: white;
+  color: #000 !important;
+}
+
+/* 2. MEET THE CHEF - FINAL ALIGNMENT */
+.home-v1 .chef-section {
+  display: flex !important;
+  align-items: stretch; /* Image & text same height */
+  gap: clamp(40px, 6vw, 80px);
+  padding: 60px 0;
+}
+
+.home-v1 .chef-img {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+.home-v1 .chef-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* Fills height perfectly */
+  border-radius: 12px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+  display: block;
+}
+
+/* Luxury Gold Frame Behind Image */
+.home-v1 .chef-img::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.home-v1 .chef-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically against image */
+  gap: 18px;
+}
+
+.home-v1 .tagline { 
+  color: var(--gold); 
+  margin: 0; 
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.home-v1 .desc { 
+  opacity: 0.8; 
+  line-height: 1.8; 
+  margin: 0;
+  max-width: 480px; /* Better readability */
+}
+
+.home-v1 .chef-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+
+  height: 44px; /* Balanced fixed height */
+  padding: 0 24px;
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  color: var(--gold);
+  border: 1px solid rgba(200, 169, 106, 0.45);
+  background: rgba(200, 169, 106, 0.08);
+  transition: all 0.3s ease;
+}
+
+.home-v1 .chef-btn:hover {
+  background: var(--gold);
+  color: #111 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200, 169, 106, 0.25);
+}
+
+.home-v1 .chef-btn .arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.home-v1 .chef-btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+
+
+/* 3. SIGNATURE EXPERIENCES */
+.home-v1 .experiences .card {
+  border-radius: 16px;
+  padding: 30px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.home-v1 .experiences .card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme override for Experiences cards */
+body.dark.home-v1 .experiences .card {
+  background: #111111 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important;
+}
+
+body.dark.home-v1 .experiences .card h3,
+body.dark.home-v1 .experiences .card p {
+    color: #ffffff !important;
+}
+
+/* 4. GALLERY */
+.home-v1 .gallery-item {
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+.home-v1 .gallery-item img {
+  transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-v1 .gallery-item:hover img {
+  transform: scale(1.1);
+  filter: blur(2px);
+}
+
+.home-v1 .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.home-v1 .gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.home-v1 .gallery-overlay span {
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  border: 1px solid white;
+  padding: 10px 20px;
+  transform: translateY(20px);
+  transition: 0.4s ease;
+}
+
+.home-v1 .gallery-item:hover .gallery-overlay span {
+  transform: translateY(0);
+}
+
+/* 5. MENU SECTION */
+.home-v1 .menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px dashed rgba(200, 169, 106, 0.3);
+  transition: 0.3s ease;
+}
+
+.home-v1 .menu-item:hover {
+  color: var(--gold);
+  transform: translateX(10px);
+}
+
+.home-v1 .menu-item .price {
+  color: var(--gold);
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.home-v1 .menu-action {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+/* 6. TESTIMONIAL */
+.home-v1 .testimonials {
+  padding: 100px 20px;
+  text-align: center;
+  background: #F9F7F3; /* Light theme background */
+  transition: background 0.4s ease;
+}
+
+/* Force dark text for visibility in light theme */
+.home-v1 .testimonials h2,
+.home-v1 .testimonials .testimonial-item p,
+.home-v1 .testimonials .testimonial-item span {
+    color: #111111 !important;
+}
+
+/* Dark theme override for Testimonials */
+body.dark.home-v1 .testimonials {
+  background: #0B0F19 !important;
+}
+
+body.dark.home-v1 .testimonials h2,
+body.dark.home-v1 .testimonials .testimonial-item p,
+body.dark.home-v1 .testimonials .testimonial-item span {
+    color: #ffffff !important;
+}
+
+.home-v1 .testimonial-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.home-v1 .testimonial-item.active {
+    display: block;
+    opacity: 1;
+}
+
+/* SECTION HEADERS (PREMIUM TIGHT SPACING) */
+.home-v1 .section-header {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px; /* High-end tight spacing */
+  margin-bottom: 50px;
+}
+
+.home-v1 .section-tag {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.home-v1 .section-header h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.home-v1 .section-line {
+  width: 50px;
+  height: 2px;
+  background: var(--gold);
+  margin-top: 6px;
+}
+
+/* 7. FINAL CTA (CONTENT-BASED WIDTH) */
+.home-v1 .cta {
+  position: relative;
+  background-color: #0B0F19; /* Fallback */
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  overflow: hidden;
+  border-radius: 40px;
+  margin: 60px 20px;
+}
+
+.home-v1 .cta-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/home%20v1/CTA%20bg%20img.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect */
+  transition: transform 10s linear;
+  z-index: 0;
+}
+
+.home-v1 .cta:hover .cta-bg {
+  transform: scale(1.1);
+}
+
+.home-v1 .cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.home-v1 .cta-content {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.home-v1 .cta-content h2 {
+    color: white !important;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin: 0;
+}
+
+.home-v1 .cta-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  height: 52px;
+  padding: 0 45px;
+
+  border-radius: 40px;
+  background: var(--gold);
+  color: #111 !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.home-v1 .cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(200, 169, 106, 0.35);
+  background: #fff;
+}
+
+/* 9. FOOTER */
+.home-v1 footer input, 
+.home-v1 .footer input {
+  border-radius: 30px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.home-v1 footer button,
+.home-v1 .footer button {
+  background: var(--gold) !important;
+  color: white !important;
+}
+
+/* ================= MOBILE RESPONSIVE CALIBRATION (HOME V1) ================= */
+@media (max-width: 768px) {
+  /* 1. Header (Navbar) - Decompress for Mobile */
+  .home-v1 .navbar .nav-right .cta-btn {
+    display: none !important;
+  }
+  
+  .home-v1 .navbar .nav-right {
+    gap: 10px;
+  }
+
+  /* 2. Meet the Chef - Vertical Stack */
+  .home-v1 .chef-section {
+    flex-direction: column !important;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .home-v1 .chef-img, 
+  .home-v1 .chef-content {
+    flex: none;
+    width: 100%;
+  }
+
+  .home-v1 .chef-content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .home-v1 .chef-content .desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 3. Sample Menu - Refined Verticality */
+  .home-v1 .menu-list {
+    padding: 0 15px;
+  }
+
+  .home-v1 .menu-item {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 8px;
+    padding: 35px 0;
+    align-items: center !important;
+    width: 100%;
+    border-bottom: 1px dashed rgba(200, 169, 106, 0.2);
+  }
+
+  .home-v1 .menu-item .course {
+    display: block !important;
+    font-size: 11px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+    text-align: center;
+  }
+
+  .home-v1 .menu-item .dish {
+    display: block !important;
+    font-size: 22px;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.3;
+    width: 100%;
+    padding: 0 5%;
+    text-align: center;
+    color: inherit !important;
+  }
+
+  .home-v1 .menu-item .price {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-top: 10px;
+    font-size: 20px;
+    color: var(--gold);
+    font-weight: 600;
+    text-align: center;
+  }
+}

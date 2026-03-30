@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/home-v2.css">
 
 </head>
 <body class="home-v2">
@@ -17,47 +19,64 @@
     <!-- Components (Loaded via JS) -->
     <div id="navbar"></div>
 
-    <!-- ===== SECTION 1: HERO ===== -->
-    <section class="hero hero-md">
-        <div class="hero-bg" style="background-image: url('../assets/images/home v2/v2 hero section img.jpg');"></div>
+    <section class="hero-v2">
+        <div class="hero-divider"></div>
 
-        <div class="hero-content">
-            <span class="tag">Editorial Dining</span>
-            <h1>Elevate Your<br>Dining Experience</h1>
-            <p>Modern private chef services tailored to your lifestyle, bringing the Michelin standard directly to your home studio.</p>
-            <div class="hero-buttons">
+        <!-- LEFT (CONTENT) -->
+        <div class="hero-left">
+            <span class="hero-tag reveal">EDITORIAL DINING</span>
+
+            <h1 class="reveal">
+                Elevate Your<br>
+                <span class="highlight">Dining Experience</span>
+            </h1>
+
+            <p class="reveal">
+                Modern private chef services tailored to your lifestyle,
+                bringing the Michelin standard directly to your home.
+            </p>
+
+            <div class="hero-actions reveal">
                 <a href="../pages/contact.html" class="btn-primary">Book Now</a>
+                <a href="../pages/services.html" class="btn-outline">Explore Services</a>
             </div>
+        </div>
 
+        <!-- RIGHT (IMAGE) -->
+        <div class="hero-right">
+            <img src="../assets/images/home%20v2/v2%20hero%20section%20img.jpg" alt="Dining Experience">
         </div>
     </section>
 
     <!-- ===== SECTION 2: WHY CHOOSE US ===== -->
     <section class="features">
-        <div class="container">
-            <span class="label" style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 12px;">Our Standard</span>
-            <h2 style="font-size: 42px; margin-top: 15px;">Why Choose Dineé</h2>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">Our Standard</span>
+                <h2>Why Choose Dineé</h2>
+                <div class="section-line"></div>
+            </div>
 
             <div class="feature-grid">
-                <div class="feature">
-                    <i class='bx bx-star' style="font-size: 32px; color: var(--primary); margin-bottom: 20px; display: block;"></i>
-                    <h3 style="margin-bottom: 10px;">Personalized Menus</h3>
-                    <p style="font-size: 14px; color: var(--muted);">Every ingredient curated for your specific palate and occasion.</p>
+                <div class="feature-card">
+                    <i class='bx bx-star'></i>
+                    <h3>Personalized Menus</h3>
+                    <p>Every ingredient curated for your specific palate and occasion.</p>
                 </div>
-                <div class="feature">
-                    <i class='bx bx-leaf' style="font-size: 32px; color: var(--primary); margin-bottom: 20px; display: block;"></i>
-                    <h3 style="margin-bottom: 10px;">Premium Ingredients</h3>
-                    <p style="font-size: 14px; color: var(--muted);">Locally sourced, organic, and rare components for every dish.</p>
+                <div class="feature-card">
+                    <i class='bx bx-leaf'></i>
+                    <h3>Premium Ingredients</h3>
+                    <p>Locally sourced, organic, and rare components for every dish.</p>
                 </div>
-                <div class="feature">
-                    <i class='bx bx-home-alt' style="font-size: 32px; color: var(--primary); margin-bottom: 20px; display: block;"></i>
-                    <h3 style="margin-bottom: 10px;">At-Home Luxury</h3>
-                    <p style="font-size: 14px; color: var(--muted);">The restaurant atmosphere recreated in your private space.</p>
+                <div class="feature-card">
+                    <i class='bx bx-home-alt'></i>
+                    <h3>At-Home Luxury</h3>
+                    <p>The restaurant atmosphere recreated in your private space.</p>
                 </div>
-                <div class="feature">
-                    <i class='bx bx-user-check' style="font-size: 32px; color: var(--primary); margin-bottom: 20px; display: block;"></i>
-                    <h3 style="margin-bottom: 10px;">Professional Service</h3>
-                    <p style="font-size: 14px; color: var(--muted);">Discrete, Michelin-standard service from start to finish.</p>
+                <div class="feature-card">
+                    <i class='bx bx-user-check'></i>
+                    <h3>Professional Service</h3>
+                    <p>Discrete, Michelin-standard service from start to finish.</p>
                 </div>
             </div>
         </div>
@@ -65,59 +84,63 @@
 
     <!-- ===== SECTION 3: PROCESS ===== -->
     <section class="process">
-        <div class="container">
-            <span class="label" style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 12px;">The Culinary Journey</span>
-            <h2 style="font-size: 42px; margin-top: 15px;">Our Process</h2>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">The Culinary Journey</span>
+                <h2>Our Process</h2>
+                <div class="section-line"></div>
+            </div>
 
-            <div class="steps">
-                <div class="step-item">
-                    <span class="step-number">01</span>
-                    <h3 class="step-name">Consult</h3>
-                    <p class="step-info">Briefing & Vision</p>
+            <div class="process-row">
+                <div class="process-step">
+                    <div class="circle">01</div>
+                    <h3>Consult</h3>
+                    <p>Briefing & Vision</p>
                 </div>
-                <div class="step-item">
-                    <span class="step-number">02</span>
-                    <h3 class="step-name">Plan</h3>
-                    <p class="step-info">Menu Design</p>
+                <div class="process-step">
+                    <div class="circle">02</div>
+                    <h3>Plan</h3>
+                    <p>Menu Design</p>
                 </div>
-                <div class="step-item">
-                    <span class="step-number">03</span>
-                    <h3 class="step-name">Cook</h3>
-                    <p class="step-info">Michelin Preparation</p>
+                <div class="process-step">
+                    <div class="circle">03</div>
+                    <h3>Cook</h3>
+                    <p>Michelin Preparation</p>
                 </div>
-                <div class="step-item">
-                    <span class="step-number">04</span>
-                    <h3 class="step-name">Serve</h3>
-                    <p class="step-info">Orchestrated Service</p>
+                <div class="process-step">
+                    <div class="circle">04</div>
+                    <h3>Serve</h3>
+                    <p>Orchestrated Service</p>
                 </div>
-                <div class="step-item">
-                    <span class="step-number">05</span>
-                    <h3 class="step-name">Enjoy</h3>
-                    <p class="step-info">The Unforgettable</p>
+                <div class="process-step">
+                    <div class="circle">05</div>
+                    <h3>Enjoy</h3>
+                    <p>The Unforgettable</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== SECTION 4: STATS ===== -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-header">
-                <span class="label" style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 11px;">The Legacy</span>
-                <h2 style="font-size: 38px; margin: 15px 0 60px;">Excellence in Precision</h2>
+    <section class="stats dark-section">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">The Legacy</span>
+                <h2>Excellence in Precision</h2>
+                <div class="section-line"></div>
             </div>
             
             <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>10+</h3>
+                <div class="stat-item reveal">
+                    <h2>10+</h2>
                     <p>Years of Culinary<br>Excellence</p>
                 </div>
-                <div class="stat-item">
-                    <h3>500+</h3>
+                <div class="stat-item reveal">
+                    <h2>500+</h2>
                     <p>Meticulously Orchestrated<br>Private Events</p>
                 </div>
-                <div class="stat-item">
-                    <h3>50+</h3>
+                <div class="stat-item reveal">
+                    <h2>50+</h2>
                     <p>Curated Signature<br>Plates</p>
                 </div>
             </div>
@@ -126,10 +149,14 @@
 
     <!-- ===== SECTION 5: VIDEO ===== -->
     <section class="video">
-        <div class="container">
-            <span class="label" style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 12px;">Behind the Scenes</span>
-            <h2 style="font-size: 42px; margin-top: 15px;">Chef in Action</h2>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">Behind the Scenes</span>
+                <h2>Chef in Action</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="video-box">
+                <img src="../assets/images/home%20v1/hero%20img.jpg" alt="Chef in Action">
                 <div class="play-btn">
                     <i class='bx bx-play'></i>
                 </div>
@@ -137,33 +164,87 @@
         </div>
     </section>
 
+    <!-- ===== SECTION: THE DINEÉ EXPERIENCE ===== -->
+    <section class="experience-section dark-section">
+      <div class="container reveal">
+
+        <div class="section-header">
+          <span class="section-tag">The Experience</span>
+          <h2>Crafted Moments, Not Just Meals</h2>
+          <p>
+            Every detail is curated to deliver a seamless, luxurious private dining experience — from planning to plating.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+
+          <div class="exp-card">
+            <div class="exp-icon">
+              <i data-lucide="user"></i>
+            </div>
+            <h4>Personal Consultation</h4>
+            <p>We understand your taste, mood, and occasion.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-icon">
+              <i data-lucide="utensils"></i>
+            </div>
+            <h4>Curated Menu</h4>
+            <p>Custom-crafted dishes tailored to your preferences.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-icon">
+              <i data-lucide="home"></i>
+            </div>
+            <h4>At-Home Setup</h4>
+            <p>We recreate a fine dining ambiance in your space.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-icon">
+              <i data-lucide="star"></i>
+            </div>
+            <h4>Signature Experience</h4>
+            <p>An unforgettable culinary journey with premium service.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- ===== SECTION 6: LOCATIONS ===== -->
     <section class="locations">
-        <div class="container">
-            <span class="tag">Presence</span>
-            <h2 style="font-size: 42px; margin-top: 15px;">Areas We Serve</h2>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">Presence</span>
+                <h2>Areas We Serve</h2>
+                <div class="section-line"></div>
+            </div>
             
             <div class="location-grid">
-                <div class="location-card">
-                    <img src="../assets/images/home v2/chennai.jpg" alt="Dineé Chennai">
+                <div class="location-card area-card">
+                    <img src="../assets/images/home%20v2/chennai.jpg" alt="Dineé Chennai">
                     <div class="loc-overlay">
                         <h3>Chennai</h3>
                     </div>
                 </div>
-                <div class="location-card">
-                    <img src="../assets/images/home v2/banglore.jpg" alt="Dineé Bangalore">
+                <div class="location-card area-card">
+                    <img src="../assets/images/home%20v2/banglore.jpg" alt="Dineé Bangalore">
                     <div class="loc-overlay">
                         <h3>Bangalore</h3>
                     </div>
                 </div>
-                <div class="location-card">
-                    <img src="../assets/images/home v2/mumbai.jpg" alt="Dineé Mumbai">
+                <div class="location-card area-card">
+                    <img src="../assets/images/home%20v2/mumbai.jpg" alt="Dineé Mumbai">
                     <div class="loc-overlay">
                         <h3>Mumbai</h3>
                     </div>
                 </div>
-                <div class="location-card">
-                    <img src="../assets/images/home v2/delhi.jpg" alt="Dineé Delhi">
+                <div class="location-card area-card">
+                    <img src="../assets/images/home%20v2/delhi.jpg" alt="Dineé Delhi">
                     <div class="loc-overlay">
                         <h3>Delhi</h3>
                     </div>
@@ -174,19 +255,21 @@
 
 
     <!-- ===== SECTION 7: INQUIRY FORM ===== -->
-    <section class="form-section">
-        <div class="container form-grid">
+    <section class="form-section dark-section">
+        <div class="container form-grid reveal">
             <div class="form-content">
-                <span class="tag">Get in Touch</span>
-                <h2>Book Your<br>Experience</h2>
-                <p>We invite you to experience the alchemy of private dining. Fill out the form, and our concierge will reach out to curate your event.</p>
+                <div class="contact-header">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2>Book Your Experience</h2>
+                    <p class="muted">We invite you to experience the alchemy of private dining. Fill out the form, and our concierge will reach out to curate your event.</p>
+                </div>
             </div>
-            <div class="form-wrapper">
+            <div class="form-wrapper form-box">
                 <form>
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Email Address" required>
                     <input type="text" placeholder="Preferred Date (DD/MM/YYYY)" onfocus="(this.type='date')" required>
-                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                    <button type="submit" class="submit-btn form-btn">Send Inquiry</button>
                 </form>
             </div>
         </div>
@@ -198,6 +281,9 @@
 
     <!-- Shared JS logic -->
     <script src="../assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 </html>

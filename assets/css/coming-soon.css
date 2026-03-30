@@ -429,3 +429,60 @@
   }
 }
 
+
+/* ================= LIGHT THEME SYNC ================= */
+.coming-soon-body.light {
+  background: #f8f7f4;
+  color: #1a1a1a;
+}
+
+.coming-soon-body.light .ambient-bg {
+  background: radial-gradient(circle at 20% 30%, rgba(200,169,106,0.15), transparent),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,1), transparent);
+}
+
+.coming-soon-body.light .content {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+}
+
+.coming-soon-body.light .brand-logo,
+.coming-soon-body.light .content h1 {
+  color: #1a1a1a;
+}
+
+.coming-soon-body.light .content p {
+  color: #555;
+}
+
+.coming-soon-body.light .countdown div {
+  background: #fff;
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.coming-soon-body.light .countdown span {
+  color: #1a1a1a;
+}
+
+.coming-soon-body.light .input-wrapper {
+  background: #fff;
+  border-color: rgba(0,0,0,0.1);
+}
+
+.coming-soon-body.light .input-wrapper input {
+  color: #111;
+}
+
+.coming-soon-body.light .input-wrapper input::placeholder {
+  color: #999;
+}
+
+.coming-soon-body.light .return-link a {
+  color: #777;
+}
+
+.coming-soon-body.light .return-link a:hover {
+  color: var(--primary);
+}

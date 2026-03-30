@@ -10,18 +10,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css?v=11">
+    <link rel="stylesheet" href="../assets/css/services.css">
 </head>
 <body class="services-page">
     
     <div id="navbar"></div>
 
-    <!-- ===== SECTION 1: HERO ===== -->
-    <section class="hero hero-md">
-      <div class="hero-bg" style="background-image: url('../assets/images/services/hero%20section%20img.jpg');"></div>
+    <!-- ===== SECTION 1: SERVICES HERO (FINAL CINEMATIC) ===== -->
+    <section class="services-hero">
       <div class="hero-content">
-        <span class="tag">Our Services</span>
-        <h1>Curated Culinary<br>Experiences</h1>
-        <p>Designed for those who seek more than just dining.</p>
+        <span class="hero-label">Signature Services</span>
+        
+        <h1 class="hero-title">
+          <span class="primary">Curated Culinary</span><br>
+          <span class="secondary">Experiences</span>
+        </h1>
+        
+        <p class="hero-desc">
+          Designed for those who seek more than just dining—an intersection of art, atmosphere, and architectural precision.
+        </p>
       </div>
     </section>
 
@@ -73,53 +80,78 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 4: EXPERIENCE FLOW ===== -->
-    <section class="service-flow">
-        <div class="container text-center">
+    <!-- ===== SECTION 4: GUIDED EXPERIENCE TIMELINE (SaaS PREMIUM UPGRADE) ===== -->
+    <section class="experience-flow">
+        <div class="container">
+      
             <span class="tag">The Process</span>
-            <h2>Your Experience</h2>
-            <div class="flow-steps">
-                <div class="flow-step">
-                    <div class="step-num">01</div>
-                    <div class="step-name">Consultation</div>
+            <h2 class="section-title">Your Experience</h2>
+      
+            <div class="flow-wrapper">
+      
+                <div class="flow-line"></div>
+        
+                <div class="flow-card">
+                    <div class="step">01</div>
+                    <h4>Consultation</h4>
+                    <p>We understand your vision and preferences.</p>
                 </div>
-                <div class="flow-step">
-                    <div class="step-num">02</div>
-                    <div class="step-name">Menu Design</div>
+        
+                <div class="flow-card">
+                    <div class="step">02</div>
+                    <h4>Menu Design</h4>
+                    <p>Curating a personalized culinary journey.</p>
                 </div>
-                <div class="flow-step">
-                    <div class="step-num">03</div>
-                    <div class="step-name">Preparation</div>
+        
+                <div class="flow-card">
+                    <div class="step">03</div>
+                    <h4>Preparation</h4>
+                    <p>Ingredients sourced and crafted with precision.</p>
                 </div>
-                <div class="flow-step">
-                    <div class="step-num">04</div>
-                    <div class="step-name">Dining</div>
+        
+                <div class="flow-card">
+                    <div class="step">04</div>
+                    <h4>Dining</h4>
+                    <p>An immersive fine dining experience.</p>
                 </div>
+        
             </div>
+      
         </div>
     </section>
 
-    <!-- ===== SECTION 5: SAMPLE EXPERIENCE ===== -->
+    <!-- ===== SECTION 5: INTERACTIVE TASTING EXPERIENCE ===== -->
     <section class="sample-experience">
-        <div class="sample-content">
-            <span class="tag">Tasting Menu</span>
-            <h2>A Taste of the Experience</h2>
-            <p>
-                From handcrafted starters to decadent desserts,
-                every course is curated to tell a story and engage all senses.
-            </p>
-            <div class="sample-list">
-                <div class="sample-item">
-                    <span class="course">Amuse-Bouche</span>
-                    <span class="dish">Smoked Trout Tartlet • Caviar</span>
+        <div class="container">
+            <div class="sample-content">
+                <span class="sample-label">Tasting Menu</span>
+                <h2 class="section-title">A Taste of the Experience</h2>
+                <p>From handcrafted starters to decadent desserts, every course is curated to tell a story and engage all senses.</p>
+
+                <div class="sample-list">
+                    <div class="sample-item">
+                        <div class="course">Amuse-Bouche</div>
+                        <div class="dish">Smoked Trout Tartlet • Caviar</div>
+                    </div>
+
+                    <div class="sample-item">
+                        <div class="course">First Course</div>
+                        <div class="dish">Heirloom Tomato Consommé • Basil Oil</div>
+                    </div>
+
+                    <div class="sample-item">
+                        <div class="course">Main Course</div>
+                        <div class="dish">Wagyu Striploins • Truffle Pommes Pavé</div>
+                    </div>
+
+                    <div class="sample-item">
+                        <div class="course">Dessert</div>
+                        <div class="dish">Gold Butterfly Macaron • Yuzu Crème</div>
+                    </div>
                 </div>
-                <div class="sample-item">
-                    <span class="course">First Course</span>
-                    <span class="dish">Heirloom Tomato Consommé • Basil Oil</span>
-                </div>
-                <div class="sample-item">
-                    <span class="course">Main Course</span>
-                    <span class="dish">Wagyu Striploin • Truffle Pommes Pavé</span>
+
+                <div class="sample-cta">
+                    <a href="#" class="btn-outline">Download Sample Menu</a>
                 </div>
             </div>
         </div>
@@ -151,6 +183,16 @@
     <!-- Footer Container (Loaded via JS) -->
     <div id="footer"></div>
 
+    <!-- Parallax Flow Script -->
+    <script>
+      window.addEventListener("scroll", () => {
+        const hero = document.querySelector(".services-hero");
+        if (hero) {
+          let offset = window.scrollY;
+          hero.style.backgroundPositionY = offset * 0.3 + "px";
+        }
+      });
+    </script>
     <script src="../assets/js/main.js"></script>
 </body>
 </html>

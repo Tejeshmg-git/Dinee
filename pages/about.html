@@ -10,164 +10,205 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css?v=3">
+    <link rel="stylesheet" href="../assets/css/about.css">
 </head>
 <body class="about-page">
 
     <!-- Components (Loaded via JS) -->
     <div id="navbar"></div>
 
-    <!-- ===== SECTION 1: ABOUT HERO ===== -->
-    <section class="hero hero-md">
-        <div class="hero-bg" style="background-image: url('../assets/images/about/hero%20section%20img.avif');"></div>
-        <div class="hero-content">
-            <span class="tag">Our Legacy</span>
-            <h1>Crafting Culinary<br>Narratives</h1>
-            <p>Where architectural precision meets the soul of fine dining.</p>
+    <!-- ===== SECTION 1: ABOUT HERO (CINEMATIC REFINED) ===== -->
+    <section class="about-hero">
+      <div class="hero-bg"></div>
+      
+      <div class="hero-content">
+        <div class="hero-label">
+          <span>Our Legacy</span>
         </div>
+        
+        <h1 class="hero-title">
+          Crafting Culinary <br />
+          Narratives
+        </h1>
+        
+        <p class="hero-sub">
+          Where architectural precision meets the soul of fine dining,
+          creating experiences that linger beyond the table.
+        </p>
+
+        <a href="services.html" class="cta-button">Explore Our Services →</a>
+      </div>
     </section>
 
-    <!-- ===== SECTION 2: STORY (MANIFESTO) ===== -->
-    <section class="about-story">
-        <div class="container">
-            <h2 class="story-title">The Journey</h2>
-            <p class="lead-text">
-                Dineé was born from a singular passion: to redefine the intimate dining experience.
+    <!-- ===== SECTION 2: THE JOURNEY (REFINED GRID) ===== -->
+    <section class="journey-section">
+      <div class="container journey-grid reveal">
+        <div class="journey-left">
+          <span class="section-tag-v1">The Journey</span>
+          <h2>
+            Dineé was born from a singular passion:
+            <span>to redefine the intimate dining experience.</span>
+          </h2>
+          <p>
+            We believe that a meal is more than just sustenance; it is a canvas
+            for storytelling, a vessel for memory, and a sanctuary of shared emotion.
+            Every experience we craft is a tribute to elegance and precision.
+          </p>
+        </div>
+        
+        <div class="journey-image">
+          <img src="../assets/images/home v1/The Culinary Narrative.jpg" alt="The Journey Visul">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: CHEF PROFILE (PREMIUM EDITORIAL) ===== -->
+    <section class="chef-section">
+      <div class="container chef-grid reveal">
+        <div class="chef-image">
+          <img src="../assets/images/about/Chef Dineé.jpg" alt="Chef Dineé" />
+        </div>
+        <div class="chef-content">
+          <span class="section-tag-v1">The Visionary</span>
+          <h2>Chef Dineé</h2>
+          <p class="lead">
+            With over a decade of experience across the world's most demanding
+            kitchens, Chef Dineé brings a global perspective to your private
+            table.
+          </p>
+          <p>
+            His philosophy is rooted in the "Architectural Plate"—a belief that
+            flavor, texture, and visual balance must work in perfect harmony.
+          </p>
+          <p>
+            From humble beginnings to orchestrating high-stakes events, his
+            journey is defined by precision, elegance, and connection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: PHILOSOPHY (THREE PILLARS) ===== -->
+    <section class="philosophy" id="about-philosophy">
+      <div class="container reveal">
+        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+          <span class="section-tag-v1">Our Ethos</span>
+          <h2 class="section-title">The Three Pillars</h2>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-card reveal">
+            <div class="pillar-icon"><i class="bx bx-sun"></i></div>
+            <h3>Seasonality</h3>
+            <p>
+              Working exclusively with nature's current cycle for peak flavor
+              profile.
             </p>
-            <p class="sub-text">
-                We believe that a meal is more than just sustenance; it is a canvas for storytelling, 
-                a vessel for memory, and a sanctuary of shared emotion. Every experience we craft is a 
-                tribute to elegance and precision.
+          </div>
+          <div class="pillar-card reveal">
+            <div class="pillar-icon"><i class="bx bx-layer"></i></div>
+            <h3>Precision</h3>
+            <p>Meticulous attention to every micro-detail, from prep to service.</p>
+          </div>
+          <div class="pillar-card reveal">
+            <div class="pillar-icon"><i class="bx bx-heart"></i></div>
+            <h3>Connection</h3>
+            <p>
+              Creating an intimate bond between the chef and your private space.
             </p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ===== SECTION 3: CHEF PROFILE (ASYMMETRIC) ===== -->
-    <section class="about-chef">
-        <div class="about-wrapper">
-            <!-- TEXT BLOCK -->
-            <div class="about-text">
-                <span class="tag">The Visionary</span>
-                <h2>Chef Dineé</h2>
-                <p>
-                    With over a decade of experience across the world's most demanding kitchens,
-                    Chef Dineé brings a global perspective to your private table. His philosophy 
-                    is rooted in the "Architectural Plate"—a belief that flavor, texture, and visual 
-                    balance must work in perfect harmony.
-                </p>
-                <p>
-                    From humble beginnings to orchestrating high-stakes events,
-                    his journey is defined by precision, elegance, and connection.
-                </p>
-            </div>
-            <!-- IMAGE BLOCK -->
-            <div class="about-image">
-                <img src="../assets/images/about/Chef Dineé.jpg" alt="Chef Dineé">
-            </div>
+    <!-- ===== SECTION 5: ART OF DINING (NARRATIVE) ===== -->
+    <section class="art-of-dining">
+      <div class="container art-grid reveal">
+        <div class="art-image">
+          <img src="../assets/images/about/The Art of intimate dining.jpg" alt="The Art of Intimate Dining" />
         </div>
+        <div class="art-text">
+          <span class="section-tag-v1">The Vision</span>
+          <h2>The Art of<br />Intimate Dining</h2>
+          <p>
+            Every dish is a meticulous balance of flavor and visual harmony.
+            We believe true dining is the creation of atmospheric moments that
+            linger far beyond the table — a world-class culinary journey curated
+            for your private space.
+          </p>
+
+          <div class="art-quote">
+            "Dining is not just consumption — it is an experience of art, emotion,
+            and shared memory."
+          </div>
+
+          <div class="essence-row">
+            <div class="essence-item">
+              <span class="num">01</span>
+              <span class="text">Taste</span>
+            </div>
+            <div class="essence-item">
+              <span class="num">02</span>
+              <span class="text">Atmosphere</span>
+            </div>
+            <div class="essence-item">
+              <span class="num">03</span>
+              <span class="text">Memory</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="philosophy">
-        <div class="container">
-            <span class="tag">Our Ethos</span>
-            <h2>The Three Pillars</h2>
-
-            <div class="philo-grid">
-                <div class="philo-card">
-                    <div class="philo-icon"><i class='bx bx-sun'></i></div>
-                    <h3>Seasonality</h3>
-                    <p>Working exclusively with nature's current cycle for peak flavor profile.</p>
-                </div>
-                <div class="philo-card">
-                    <div class="philo-icon"><i class='bx bx-layer'></i></div>
-                    <h3>Precision</h3>
-                    <p>Meticulous attention to every micro-detail, from prep to service.</p>
-                </div>
-                <div class="philo-card">
-                    <div class="philo-icon"><i class='bx bx-heart'></i></div>
-                    <h3>Connection</h3>
-                    <p>Creating an intimate bond between the chef and your private space.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ===== SECTION 5: DINING PHILOSOPHY ===== -->
-    <section class="dining-philosophy">
-        <div class="dining-philo-container">
-            <!-- EDITORIAL IMAGE (LEFT) -->
-            <div class="dining-philo-image">
-                <img src="../assets/images/about/The Art of intimate dining.jpg" alt="The Art of Intimate Dining">
-            </div>
-
-            <!-- NARRATIVE CONTENT (RIGHT) -->
-            <div class="dining-philo-content">
-                <div class="philo-header">
-                    <span class="tag">The Vision</span>
-                    <h2>The Art of<br>Intimate Dining</h2>
-                </div>
-
-                <div class="philo-body">
-                    <p class="lead">
-                        Every dish is a meticulous balance of flavor and visual harmony. We believe true dining is the creation of atmospheric moments that linger far beyond the table — a world-class culinary journey curated for your private space.
-                    </p>
-                    
-                    <div class="philo-essence-row">
-                        <div class="essence-item">
-                            <span class="num">01</span>
-                            <span class="text">Taste</span>
-                        </div>
-                        <div class="essence-item">
-                            <span class="num">02</span>
-                            <span class="text">Atmosphere</span>
-                        </div>
-                        <div class="essence-item">
-                            <span class="num">03</span>
-                            <span class="text">Memory</span>
-                        </div>
-                    </div>
-
-                    <blockquote>
-                        "Dining is not just consumption — it is an experience of art, emotion, and shared memory."
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SECTION 6: TIMELINE ===== -->
+    <!-- ===== SECTION 6: TIMELINE (GLOWING LUXURY) ===== -->
     <section class="timeline-section">
-        <div class="container">
-            <span class="label" style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 11px;">Evolution</span>
-            <h2>Our Timeline</h2>
+      <div class="container reveal">
+        <span class="section-tag-v1">Evolution</span>
+        <h2 class="section-title">Our Timeline</h2>
 
-            <div class="timeline-items">
-                <div class="timeline-item">
-                    <h3 class="timeline-year">2015</h3>
-                    <p class="timeline-desc">The first private kitchen studio established, focusing on ingredient research.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3 class="timeline-year">2018</h3>
-                    <p class="timeline-desc">Reached a milestone of 100+ bespoke events across primary metropolitan hubs.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3 class="timeline-year">2022</h3>
-                    <p class="timeline-desc">Launch of the 'Architectural Series'—a new standard in high-end private dining luxury.</p>
-                </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>2015</h3>
+              <p>
+                The first private kitchen studio established, focusing on
+                ingredient research.
+              </p>
             </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>2018</h3>
+              <p>
+                Reached a milestone of 100+ bespoke events across primary
+                metropolitan hubs.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>2022</h3>
+              <p>
+                Launch of the 'Architectural Series'—a new standard in high-end
+                private dining luxury.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ===== SECTION 7: CTA ===== -->
-    <section class="about-cta">
-        <div class="cta-card about-variant">
-            <div class="cta-glow"></div>
-            <div class="cta-pattern"></div>
-            <span class="tag">The Experience</span>
-            <h2>Be Part of the Story</h2>
-            <p>Available for domestic and international private commissions.</p>
-            <a href="../pages/contact.html" class="btn-primary">Reserve Your Table</a>
-        </div>
+    <!-- ===== SECTION 7: CTA (LUXURY) ===== -->
+    <section class="container" style="margin-top: 50px;">
+      <div class="cta-section reveal">
+        <span class="section-tag-v1">The Experience</span>
+        <h2>Be Part of the Story</h2>
+        <p>Available for domestic and international private commissions.</p>
+        <a href="../pages/contact.html" class="cta-button">Reserve Your Table</a>
+      </div>
     </section>
 
     <!-- Footer Container (Loaded via JS) -->

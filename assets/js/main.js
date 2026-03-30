@@ -208,3 +208,77 @@ function initMobileMenu() {
         link.addEventListener("click", closeMenu);
     });
 }
+
+/**
+ * Premium Animation & Interaction System
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Scroll Reveal Logic
+    const reveals = document.querySelectorAll(".reveal");
+    const revealOnScroll = () => {
+        reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+                el.classList.add("active");
+            }
+        });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // Initial check
+
+    // 2. Navbar Shrink Logic
+    const nav = document.querySelector(".navbar");
+    window.addEventListener("scroll", () => {
+        if (nav) {
+            nav.classList.toggle("shrink", window.scrollY > 50);
+        }
+    });
+
+    // 3. Testimonial Slider Logic
+    const testimonialItems = document.querySelectorAll(".testimonial-item");
+    if (testimonialItems.length > 0) {
+        let index = 0;
+        // Set first item active
+        testimonialItems[0].classList.add("active");
+
+        setInterval(() => {
+            testimonialItems[index].classList.remove("active");
+            index = (index + 1) % testimonialItems.length;
+            testimonialItems[index].classList.add("active");
+        }, 4000);
+    }
+
+    // 4. Counter Animation Logic
+    const counters = document.querySelectorAll(".stat-item h2");
+    if (counters.length > 0) {
+        const observerOptions = { threshold: 0.5 };
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const targetText = counter.innerText;
+                    const targetNum = parseInt(targetText.replace('+', ''), 10);
+                    let count = 0;
+                    const duration = 2000;
+                    const frameDuration = 1000 / 60;
+                    const totalFrames = Math.round(duration / frameDuration);
+                    const increment = targetNum / totalFrames;
+
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < targetNum) {
+                            counter.innerText = Math.floor(count) + "+";
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.innerText = targetNum + "+";
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => counterObserver.observe(counter));
+    }
+});

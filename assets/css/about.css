@@ -1,0 +1,1024 @@
+/* ==========================================================================
+   DINEÉ ABOUT PAGE REFINEMENT - STABILIZATION
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ABOUT HERO - CINEMATIC DEPTH & REVEAL */
+.about-hero {
+  position: relative;
+  min-height: 80vh; /* Reduced to medium scale */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: #000; /* Fallback */
+  padding: 100px 20px; /* Reduced breathing room for medium scale */
+}
+
+/* Layered Background with Floating Motion */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../images/about/hero section img.avif') center/cover no-repeat;
+  transform: scale(1.1);
+  z-index: 0;
+  animation: floatBg 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+    radial-gradient(circle at center, rgba(200,169,106,0.18), transparent 65%);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    animation: none !important; /* Disable moving background on mobile */
+    transform: scale(1.1) !important; /* Keep static scale */
+  }
+}
+
+.about-hero-overlay {
+  display: none; /* Replaced by hero-bg pseudo-element */
+}
+
+/* Content Architecture */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 0 20px;
+}
+
+/* Luxury Label Animation */
+.hero-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  margin-top: 20px; /* Added breathing room above */
+}
+
+.hero-label span {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #C8A96A;
+  font-weight: 500;
+}
+
+.hero-label::before,
+.hero-label::after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #C8A96A, transparent);
+  opacity: 0.6;
+}
+
+/* Cinematic Title Reveal */
+.hero-title {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.1;
+  color: #ffffff !important; /* Force visibility on all themes */
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+/* Subtitle Reveal */
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9) !important; /* Force high-contrast */
+  max-width: 620px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+/* CTA Button Interaction */
+.hero-content .cta-button {
+  margin-top: 15px;
+  background: #C8A96A !important;
+  color: #111111 !important;
+  padding: 16px 40px;
+  border-radius: 40px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.9s;
+  border: none;
+}
+
+.hero-content .cta-button:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(200,169,106,0.35);
+  background: #ffffff !important;
+}
+
+/* Shine Effect */
+.hero-content .cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transition: 0.6s;
+  z-index: 1;
+}
+
+.hero-content .cta-button:hover::before {
+  left: 100%;
+}
+
+/* Keyframes */
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatBg {
+  0%, 100% { transform: scale(1.1) translateY(0); }
+  50% { transform: scale(1.1) translateY(-15px); }
+}
+
+/* Scroll Reveal System Restoration */
+/* GLOBAL CONTAINER & SECTION SAFETY */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px; /* Fixes edge-sticking issue */
+}
+
+section {
+    overflow: hidden; /* Prevents side-scroll issues */
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   2. THE JOURNEY (REFINED GRID ARCHITECTURE)
+   ========================================================================== */
+.journey-section {
+  padding: 120px 0;
+  background: transparent;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.journey-left {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 10px; /* Subtle breathing room */
+}
+
+.section-tag-v1 {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #C8A96A;
+  margin-bottom: 25px;
+  display: block;
+  font-weight: 600;
+}
+
+.section-tag-v1::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 1px;
+  background: #C8A96A;
+  margin: 10px 0 0;
+  opacity: 0.6;
+}
+
+.journey-left h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.2;
+  color: #111111;
+  margin-bottom: 25px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  word-break: normal;
+}
+
+.journey-left h2 span {
+  display: block;
+  color: #C8A96A;
+}
+
+.journey-left p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: rgba(0,0,0,0.7);
+  max-width: 520px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+/* Dark mode fixes for Journey Left */
+body.dark.about-page .journey-left h2 {
+  color: #ffffff;
+}
+
+body.dark.about-page .journey-left p {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Journey Visual (Right Column) */
+.journey-image {
+    width: 100%;
+    height: 480px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.journey-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.journey-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 50px 100px rgba(200, 169, 106, 0.15);
+}
+
+.journey-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile Alignment & Stacking */
+@media (max-width: 768px) {
+  .journey-section {
+    padding: 80px 0;
+  }
+
+  .journey-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .journey-left {
+    max-width: 100%;
+    padding-left: 0;
+    text-align: left;
+    order: 1;
+  }
+
+  .journey-image {
+      order: 2;
+      height: 380px;
+  }
+
+  .journey-left h2, 
+  .journey-left p {
+    text-align: left;
+  }
+}
+
+/* GLOBAL SECTION SPACING */
+section {
+  padding: 80px 5%;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
+}
+
+/* 1. CHEF SECTION (PREMIUM EDITORIAL) */
+.chef-section {
+  padding: 80px 20px;
+}
+
+.chef-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.chef-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.chef-image img {
+  width: 100%;
+  display: block;
+  transform: scale(1.02);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+}
+
+.chef-image:hover img {
+  transform: scale(1.06);
+}
+
+.chef-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent 60%);
+  pointer-events: none;
+}
+
+.chef-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-tag-v1 {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C8A96A;
+  margin-bottom: 24px; /* Increased padding */
+  display: inline-block;
+  position: relative;
+  font-weight: 600;
+}
+
+.section-tag-v1::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #C8A96A;
+  margin: 10px auto 0;
+  opacity: 0.6;
+}
+
+/* Left-aligned correction for narrative sections */
+.chef-content .section-tag-v1::after,
+.art-text .section-tag-v1::after,
+.journey-left .section-tag-v1::after {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+.chef-content .section-tag-v1,
+.art-text .section-tag-v1,
+.journey-left .section-tag-v1 {
+    text-align: left !important;
+    align-self: flex-start !important;
+}
+
+.chef-content h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  margin-bottom: 15px;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+  font-family: 'Playfair Display', serif;
+  text-align: left;
+}
+
+.chef-section:hover .chef-content h2 {
+  letter-spacing: 0.5px;
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background: #C8A96A;
+  margin: 10px 0 25px; /* Left aligned spacing */
+  opacity: 0.6;
+}
+
+.chef-content .lead {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.85);
+  margin-bottom: 20px;
+  font-weight: 500;
+  max-width: 550px;
+  text-align: left;
+}
+
+.chef-content p {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: rgba(0,0,0,0.65);
+  margin-bottom: 16px;
+  font-weight: 300;
+  max-width: 520px;
+  text-align: left;
+}
+
+/* Dark mode override for Chef section content */
+body.dark.about-page .chef-content h2 {
+    color: #ffffff;
+}
+
+body.dark.about-page .chef-content .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark.about-page .chef-content p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 992px) {
+  .chef-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .chef-content {
+    text-align: center;
+  }
+
+  .divider {
+    margin: 16px auto 24px;
+  }
+}
+
+/* 2. THREE PILLARS (ULTRA PREMIUM CARD SYSTEM) */
+.philosophy {
+    padding: 100px 5%;
+    background: #fdfdfb;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.pillar-card {
+  padding: 50px 35px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.pillar-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(200,169,106,0.12),
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.pillar-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(200, 169, 106, 0.3);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.pillar-card:hover::before {
+  opacity: 1;
+}
+
+.pillar-icon {
+  font-size: 32px;
+  color: #C8A96A;
+  margin-bottom: 22px;
+  display: block;
+  transition: all 0.4s ease;
+}
+
+.pillar-card:hover .pillar-icon {
+    transform: scale(1.25) rotate(8deg);
+    color: #111;
+}
+
+.pillar-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #111;
+  transition: color 0.3s ease;
+}
+
+.pillar-card p {
+  color: #666;
+  font-size: 14.5px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* Dark mode override for Pillars */
+body.dark.about-page .philosophy {
+    background: transparent;
+}
+
+body.dark.about-page .pillar-card {
+    background: #111111;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+body.dark.about-page .pillar-card h3 {
+    color: #ffffff;
+}
+
+body.dark.about-page .pillar-card p {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+body.dark.about-page .pillar-card:hover .pillar-icon {
+    color: #ffffff;
+}
+
+/* 3. ART OF DINING (NARRATIVE FLOW - SYMMETRIC) */
+.art-of-dining {
+    padding: 100px 5%;
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+  align-items: stretch; /* Both columns match the height of the tallest one */
+  min-height: 500px; /* Optional: ensures a premium feel even if there's little text */
+}
+
+.art-image {
+    width: 100%;
+    position: relative; /* Essential for absolute image scaling */
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+}
+
+.art-image img {
+  position: absolute; /* Decouples image height from grid calculations */
+  inset: 0; /* Stretches to fill the container (which is stretched by the text) */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.art-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Editorial left flow */
+  padding: 60px 0;
+}
+
+.art-text h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #111;
+    text-align: left;
+}
+
+.art-text p {
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 25px;
+  max-width: 550px;
+  text-align: left;
+}
+
+.art-quote {
+  border-left: 3px solid #C8A96A;
+  padding: 24px;
+  color: #C8A96A;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: rgba(200, 169, 106, 0.05);
+  border-radius: 0 8px 8px 0;
+  max-width: 100%; /* Safety fix */
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.essence-row {
+    display: flex;
+    flex-wrap: wrap; /* Prevents horizontal cut */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.essence-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.essence-item .num {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.essence-item .text {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+/* 4. TIMELINE (GLOWING LUXURY JOURNEY) */
+.timeline-section {
+  padding: 100px 5%;
+  background: transparent;
+  width: 100%;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 60px;
+}
+
+/* Vertical glowing line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #C8A96A,
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 70px;
+  padding-left: 35px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Existing reveal system integration */
+.timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item:hover {
+  transform: translateX(10px);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 1px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: #C8A96A;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(200,169,106,0.6);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.6);
+  box-shadow: 0 0 20px rgba(200,169,106,0.9);
+}
+
+.timeline-content h3 {
+  font-size: 24px;
+  color: #C8A96A;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+
+.timeline-content p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(0,0,0,0.65);
+  max-width: 550px;
+}
+
+/* Dark mode override for Timeline storytelling */
+body.dark.about-page .timeline-content p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    margin-left: 10px;
+  }
+
+  .timeline-item {
+    padding-left: 30px;
+  }
+}
+
+/* 5. CTA SECTION (LUXURY CONTRAST) */
+.cta-section {
+  background: #111;
+  color: white;
+  padding: 120px 5%;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(200, 169, 106, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.cta-section h2 {
+  font-size: clamp(32px, 5vw, 56px);
+  color: white !important;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-section p {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 18px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #C8A96A !important; /* Force gold visibility */
+  color: #111111 !important; /* Force high-contrast text */
+  padding: 16px 45px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 15px 35px rgba(200, 169, 106, 0.2);
+  position: relative;
+  z-index: 2;
+  border: none;
+}
+
+.cta-button:hover {
+  background: #ffffff !important;
+  color: #111111 !important;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* DARK MODE OVERRIDES FOR ABOUT PAGE COMPONENTS */
+body.dark.about-page .chef-text h2,
+body.dark.about-page .pillar-card h3,
+body.dark.about-page .art-text h2,
+body.dark.about-page .timeline-item h3 {
+    color: #ffffff;
+}
+
+body.dark.about-page .chef-text p,
+body.dark.about-page .art-text p,
+body.dark.about-page .timeline-item p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark.about-page .pillar-card {
+    background: #151516;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark.about-page .pillar-card p {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark.about-page .philosophy {
+    background: transparent;
+}
+
+body.dark.about-page .art-quote {
+    background: rgba(200, 169, 106, 0.05);
+}
+
+body.dark.about-page .timeline-dot {
+    background: #111;
+}
+
+@media (max-width: 1024px) {
+  section, .about-hero, .journey-section, .art-of-dining, .chef-section, .pillars-section, .timeline-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .chef-grid, .art-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 100%;
+  }
+  
+  .art-image {
+      min-height: 350px;
+      order: 1;
+      width: 100%;
+  }
+
+  .art-image img {
+      position: relative;
+      height: 350px;
+      width: 100%;
+      object-fit: cover;
+  }
+
+  .chef-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start !important;
+      text-align: left !important;
+      width: 100% !important;
+      padding: 20px 0;
+  }
+
+  .chef-content h2, .chef-content p, .chef-content .lead {
+      text-align: left !important;
+      max-width: 100% !important;
+  }
+
+  .art-text {
+      padding: 30px 0;
+      text-align: left;
+      order: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 100%;
+  }
+
+  .art-text .section-tag-v1::after {
+      margin: 10px 0 0;
+  }
+
+  .essence-row {
+      justify-content: flex-start;
+      width: 100%;
+  }
+  
+  .pillars-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-section {
+    padding: 80px 0;
+  }
+
+  .journey-grid, .art-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .art-text {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 30px 0;
+      text-align: left;
+      align-items: flex-start;
+  }
+
+  .art-quote {
+      width: 100%;
+      padding: 24px;
+      margin-bottom: 30px;
+  }
+
+  .essence-row {
+      justify-content: flex-start;
+      gap: 20px;
+      width: 100%;
+  }
+
+  /* Compact CTA for Mobile/Tablet */
+  .cta-section {
+      width: 92%;
+      max-width: 600px;
+      margin: 40px auto 30px;
+      padding: 60px 40px;
+      border-radius: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

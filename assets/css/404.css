@@ -291,3 +291,38 @@ p {
   }
 }
 
+/* ================= LIGHT THEME SYNC ================= */
+.error-page-body.light {
+  background: #f8f7f4;
+  color: #1a1a1a;
+}
+
+.error-page-body.light .bg {
+  background: radial-gradient(circle at 25% 35%, rgba(200,169,106,0.1), transparent 45%),
+              radial-gradient(circle at 75% 65%, rgba(255,255,255,0.8), transparent 50%);
+}
+
+.error-page-body.light .glass-card {
+  background: rgba(255,255,255,0.8);
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+}
+
+.error-page-body.light .brand-logo,
+.error-page-body.light h2 {
+  color: #1a1a1a;
+}
+
+.error-page-body.light p {
+  color: #555;
+}
+
+.error-page-body.light .btn-secondary-variant {
+  border-color: rgba(0,0,0,0.1);
+  color: #111;
+}
+
+.error-page-body.light .btn-secondary-variant:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}

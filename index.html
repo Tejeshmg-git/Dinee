@@ -6,10 +6,11 @@
     <title>Dineé | Modern Luxury Private Chef</title>
     <link rel="icon" type="image/png" href="./assets/images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/home-v1.css">
 </head>
 <body class="home-v1">
 
@@ -20,41 +21,49 @@
     <section class="hero hero-md">
         <div class="hero-bg" style="background-image: url('./assets/images/home%20v1/hero%20img.jpg');"></div>
         <div class="hero-content">
-            <span class="tag">Bespoke Gastronomy</span>
-            <h1>Private Dining,<br>Redefined</h1>
-            <p>Luxury chef experiences crafted exclusively for your space, bringing the Michelin standard to your table.</p>
-            <div class="hero-buttons">
-                <a href="./pages/contact.html" class="btn-primary">Book an Experience</a>
-                <a href="./pages/services.html" class="btn-secondary">Explore Services</a>
+            <span class="hero-tag">BESPOKE GASTRONOMY</span>
+
+            <h1>
+                Private Dining,<br>
+                <span class="highlight">Crafted to Perfection</span>
+            </h1>
+
+            <p>
+                Michelin-level culinary experiences tailored to your space,
+                designed for unforgettable moments.
+            </p>
+
+            <div class="hero-trust">
+                ✦ Private Events &nbsp;&nbsp; ✦ Personal Chef &nbsp;&nbsp; ✦ Luxury Catering
+            </div>
+
+            <div class="hero-actions">
+                <a href="./pages/contact.html" class="btn-primary">Book Experience</a>
+                <a href="./pages/services.html" class="btn-outline">Explore Services</a>
             </div>
         </div>
     </section>
 
     <!-- ===== SECTION 2: ABOUT THE CHEF ===== -->
     <section class="about culinary-narrative">
-        <div class="about-container">
-            <div class="about-image">
-                <div class="image-frame">
-                    <img src="./assets/images/home v1/The Culinary Narrative.jpg" alt="The Culinary Narrative">
-                </div>
+        <div class="chef-section container">
+            <div class="chef-img reveal">
+                <img src="./assets/images/home%20v1/The%20Culinary%20Narrative.jpg" alt="The Culinary Narrative">
             </div>
-            <div class="about-content">
-                <span class="tag">The Culinary Narrative</span>
+            <div class="chef-content reveal">
                 <h2>Meet the Chef</h2>
-                <div class="narrative-body">
-                    <p>
-                        With a passion for refined cuisine and immersive dining,
-                        our chef crafts bespoke culinary journeys tailored to your space. 
-                        From intimate dinners to grand celebrations, we bring the restaurant's precision 
-                        and the Michelin standard directly to your home.
-                    </p>
-                    <p>
-                        Our commitment to excellence extends beyond the plate, as we orchestrate 
-                        every detail from the delicate setting to the flawless service, 
-                        ensuring an evening that is as effortless as it is unforgettable.
-                    </p>
-                </div>
-                <span class="about-signature">— Chef Dineé</span>
+                <p class="tagline">15+ Years of Culinary Excellence</p>
+
+                <p class="desc">
+                    From intimate dinners to grand experiences, each dish is crafted with precision and passion. 
+                    We bring the restaurant's precision and the Michelin standard directly to your home, 
+                    ensuring an evening that is as effortless as it is unforgettable.
+                </p>
+
+                <a href="./pages/about.html" class="chef-btn">
+                    View Full Story
+                    <span class="arrow">→</span>
+                </a>
             </div>
         </div>
     </section>
@@ -62,22 +71,25 @@
 
     <!-- ===== SECTION 3: SIGNATURE EXPERIENCES ===== -->
     <section class="experiences">
-        <div class="container">
-            <span class="label" style="color: var(--primary); letter-spacing: 2px;">Curated For You</span>
-            <h2>Signature Experiences</h2>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">Curated For You</span>
+                <h2>Signature Experiences</h2>
+                <div class="section-line"></div>
+            </div>
 
             <div class="grid-luxury">
-                <div class="card">
+                <div class="card reveal">
                     <i class='bx bx-restaurant' style="font-size: 40px; color: var(--primary); margin-bottom: 20px; display: block;"></i>
                     <h3 style="margin-bottom: 15px;">Private Dining</h3>
                     <p style="color: var(--muted); font-size: 14px;">An intimate multi-course tasting menu served in the comfort of your residence.</p>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <i class='bx bx-wine' style="font-size: 40px; color: var(--primary); margin-bottom: 20px; display: block;"></i>
                     <h3 style="margin-bottom: 15px;">Event Catering</h3>
                     <p style="color: var(--muted); font-size: 14px;">Sophisticated culinary orchestration for your most significant celebrations.</p>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <i class='bx bx-book-open' style="font-size: 40px; color: var(--primary); margin-bottom: 20px; display: block;"></i>
                     <h3 style="margin-bottom: 15px;">Culinary Classes</h3>
                     <p style="color: var(--muted); font-size: 14px;">Master the art of fine dining with hands-on sessions led by our expert chef.</p>
@@ -88,55 +100,76 @@
 
     <!-- ===== SECTION 4: GALLERY ===== -->
     <section class="gallery">
-        <div class="container">
-            <span class="label" style="color: var(--primary); letter-spacing: 2px;">Visual Journal</span>
-            <h2>The Art of the Plate</h2>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">Visual Journal</span>
+                <h2>The Art of the Plate</h2>
+                <div class="section-line"></div>
+            </div>
 
             <div class="grid-luxury">
-                <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-01.jpg" alt="Visual Journal 1">
-                <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-02.jpg" alt="Visual Journal 2">
-                <img src="./assets/images/home%20v1/Visual%20Journal%20pic-03.jpg" alt="Visual Journal 3">
-                <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-04.jpg" alt="Visual Journal 4">
-                <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-05.jpg" alt="Visual Journal 5">
-                <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-06.jpg" alt="Visual Journal 6">
+                <div class="gallery-item">
+                    <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-01.jpg" alt="Visual Journal 1">
+                    <div class="gallery-overlay"><span>View Dish</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-02.jpg" alt="Visual Journal 2">
+                    <div class="gallery-overlay"><span>View Dish</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/home%20v1/Visual%20Journal%20pic-03.jpg" alt="Visual Journal 3">
+                    <div class="gallery-overlay"><span>View Dish</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-04.jpg" alt="Visual Journal 4">
+                    <div class="gallery-overlay"><span>View Dish</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-05.jpg" alt="Visual Journal 5">
+                    <div class="gallery-overlay"><span>View Dish</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/home%20v1/Visual%20Journal%20pic%20-06.jpg" alt="Visual Journal 6">
+                    <div class="gallery-overlay"><span>View Dish</span></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ===== SECTION 5: SAMPLE MENU ===== -->
     <section class="menu">
-        <div class="container text-center">
-            <div class="menu-header">
-                <span class="tag">Seasonal Tasting</span>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">Seasonal Tasting</span>
                 <h2>Sample Menu</h2>
+                <div class="section-line"></div>
             </div>
 
             <div class="menu-list">
-                <div class="menu-item">
+                <div class="menu-item reveal">
                     <span class="course">Starter</span>
-                    <span class="dot-leader"></span>
                     <span class="dish">Truffle Infused Wild Mushroom Soup</span>
+                    <span class="price">$24</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item reveal">
                     <span class="course">Palate Cleanser</span>
-                    <span class="dot-leader"></span>
                     <span class="dish">Lemon & Basil Sorbet</span>
+                    <span class="price">$18</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item reveal">
                     <span class="course">Main</span>
-                    <span class="dot-leader"></span>
                     <span class="dish">Herb Crusted New Zealand Lamb</span>
+                    <span class="price">$65</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item reveal">
                     <span class="course">Dessert</span>
-                    <span class="dot-leader"></span>
                     <span class="dish">70% Dark Chocolate Delicacy</span>
+                    <span class="price">$22</span>
                 </div>
-
             </div>
 
-            <div class="menu-action" style="margin-top: 60px;">
-                <a href="./pages/services.html" class="cta-btn">View All Menus</a>
+            <div class="menu-action reveal">
+                <a href="./pages/services.html" class="btn-gold">View All Menus</a>
             </div>
         </div>
     </section>
@@ -144,20 +177,36 @@
 
     <!-- ===== SECTION 6: TESTIMONIALS ===== -->
     <section class="testimonials">
-        <div class="container">
-            <div class="testimonial">
-                <p>"An unforgettable dining experience. Truly world-class precision brought directly into our home. The attention to detail is unmatched."</p>
-                <span>— Alexander Malone, Beverly Hills</span>
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2>Guest Voices</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <p>"An unforgettable dining experience. Truly world-class precision brought directly into our home. The attention to detail is unmatched."</p>
+                    <span>— Alexander Malone, Beverly Hills</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"The culinary journey was beyond expectations. Every dish told a story of passion and excellence."</p>
+                    <span>— Sarah Jenkins, London</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Michelin-level dining in the comfort of our own dining room. A truly bespoke experience."</p>
+                    <span>— Michael Chen, New York</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ===== SECTION 7: BOOKING CTA ===== -->
     <section class="cta">
-        <div class="container">
+        <div class="cta-bg"></div>
+        <div class="container reveal cta-content">
             <h2>Reserve Your Experience</h2>
-            <p style="margin-bottom: 40px; color: rgba(255,255,255,0.8);">Available for private bookings and exclusive events.</p>
-            <a href="./pages/contact.html" class="btn-primary">Book Now</a>
+            <p style="color: rgba(255,255,255,0.8);">Available for private bookings and exclusive events.</p>
+            <a href="./pages/contact.html" class="cta-btn">Book Now</a>
         </div>
     </section>
 

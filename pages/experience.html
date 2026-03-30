@@ -15,32 +15,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css?v=28">
+    <link rel="stylesheet" href="../assets/css/experience.css">
 </head>
 
 <body class="experience-page">
 
     <div id="navbar"></div>
 
-    <!-- ===== 1. HERO (CINEMATIC ENTRY) ===== -->
-    <section class="hero hero-md">
-        <div class="hero-bg" style="background-image: url('../assets/images/experience/hero%20section%20img.jpg');"></div>
-        <div class="hero-content">
-            <span class="tag">The Experience</span>
-            <h1>An Evening <br>Beyond Dining</h1>
-            <p>Where every detail is curated, and every moment is remembered.</p>
+    <!-- ===== 1. HERO (CINEMATIC ENTRY UPGRADE) ===== -->
+    <section class="experience-hero">
+        <div class="experience-hero-content">
+            <span class="experience-label pill-label">The Experience</span>
+            <h1 class="experience-title">
+                <span>An Evening</span><br>
+                <span class="highlight">Beyond Dining</span>
+            </h1>
+            <p class="experience-desc">
+                Where architectural precision meets the soul of fine dining, creating experiences that linger beyond the table.
+            </p>
         </div>
     </section>
 
-    <!-- ===== 2. EXPERIENCE INTRO ===== -->
-    <section class="exp-intro reveal">
-        <span class="tag">The Philosophy</span>
-        <h2>More Than a Meal</h2>
-        <div class="intro-divider"></div>
-        <p>This is not just dining — it is an orchestration of flavors, ambiance, and emotion. Every element is designed
-            to transform your space into a world-class culinary stage.</p>
-    </section>
-
-    <!-- ===== 3. THE JOURNEY ===== -->
+    <!-- ===== 2. THE JOURNEY (PROCESS FIRST) ===== -->
     <section class="exp-journey-section">
         <span class="tag reveal">The Process</span>
         <h2 class="reveal">Your Journey With Us</h2>
@@ -73,6 +69,15 @@
         </div>
     </section>
 
+    <!-- ===== 3. EXPERIENCE INTRO (PHILOSOPHY AFTER) ===== -->
+    <section class="exp-intro reveal">
+        <span class="tag">The Philosophy</span>
+        <h2>More Than a Meal</h2>
+        <div class="intro-divider"></div>
+        <p>This is not just dining — it is an orchestration of flavors, ambiance, and emotion. Every element is designed
+            to transform your space into a world-class culinary stage.</p>
+    </section>
+
     <!-- ===== 4. BEHIND THE CRAFT (EDITORIAL STICKY) ===== -->
     <section class="craft-section">
         <div class="craft-container">
@@ -82,6 +87,7 @@
                 <h2>What You Don’t <br>See Matters Most</h2>
                 <p>Every experience begins long before the first guest arrives. Precision, sourcing, and silent
                     perfection shape what unfolds.</p>
+                <a href="../pages/contact.html" class="final-btn" style="margin-top: 40px; text-decoration: none;">Start Your Journey</a>
             </div>
 
             <!-- RIGHT (CINEMATIC FOCUS) -->
@@ -146,27 +152,41 @@
 
     <!-- ===== 8. GLOBAL INSPIRATION (MARQUEE) ===== -->
     <section class="exp-global-modern reveal">
+        <div class="global-content">
+            <span class="tag">Global Heritage</span>
+            <h2>Inspired by the World</h2>
+            <p>A curated blend of global culinary artistry, refined into a deeply personal dining experience.</p>
+        </div>
         <div class="marquee">
             <div class="track">
                 PARIS — TOKYO — MILAN — COPENHAGEN — DUBAI — NEW YORK — PARIS — TOKYO — MILAN — COPENHAGEN — DUBAI — NEW
                 YORK
             </div>
         </div>
-        <div class="global-content">
-            <span class="tag">Global Heritage</span>
-            <h2>Inspired by the World</h2>
-            <p>A curated blend of global culinary artistry, refined into a deeply personal dining experience.</p>
-        </div>
     </section>
 
-    <!-- ===== 6. CLIENT EXPERIENCE ===== -->
+    <!-- ===== 6. CLIENT EXPERIENCE (SIGNATURE UPGRADE) ===== -->
     <section class="exp-testimonial reveal">
-        <div class="quote-mark">"</div>
-        <p class="quote-text">An unforgettable evening — every detail was flawless, and every dish was a masterpiece.
-            Dineé didn't just cater our event, they transformed it into art.</p>
-        <div class="quote-author">
-            <span class="author-name">— Priya & Arjun M.</span>
-            <span class="author-event">Private Anniversary Dinner</span>
+        <div class="testimonial-container">
+            <div class="quote-icon">“</div>
+            <div class="testimonial-grid">
+                <!-- LEFT (PORTRAIT IMAGE) -->
+                <div class="testimonial-card">
+                    <img src="../assets/images/experience/private-dinner.jpg" alt="Private Dining Experience">
+                </div>
+
+                <!-- RIGHT (EDITORIAL TEXT) -->
+                <div class="testimonial-text-side">
+                    <p class="quote-text">
+                        An unforgettable evening — every detail was flawless, and every dish was a masterpiece.
+                        Dineé didn't just cater our event, they transformed it into art.
+                    </p>
+                    <div class="testimonial-meta">
+                        <span class="author-name">Priya & Arjun M.</span>
+                        <span class="author-event">Private Anniversary Dinner</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -196,11 +216,12 @@
             }, { threshold: 0.15 });
             revealElements.forEach(el => observer.observe(el));
 
-            // Parallax hero
+            // Parallax Cinematic Hero
             window.addEventListener("scroll", () => {
-                const hero = document.querySelector(".exp-hero-bg");
+                const hero = document.querySelector(".experience-hero");
                 if (hero) {
-                    hero.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+                    let offset = window.scrollY;
+                    hero.style.backgroundPositionY = offset * 0.4 + "px";
                 }
             });
         });

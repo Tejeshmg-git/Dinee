@@ -68,28 +68,11 @@
   z-index: 1000;
 }
 
-.home-v1 .navbar {
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.8);
-  transition: var(--transition);
+/* Navbar Premium Behavior */
+.home-v1 #navbar {
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* Dark mode override for Navbar */
-body.dark.home-v1 .navbar {
-  background: rgba(11, 11, 12, 0.85) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.home-v1 .navbar.shrink {
-  padding: 10px 0;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-body.dark.home-v1 .navbar.shrink {
-  background: rgba(11, 11, 12, 0.98) !important;
 }
 
 /* 1. HERO SECTION */
@@ -196,7 +179,7 @@ body.dark.home-v1 .navbar.shrink {
 .home-v1 .btn-gold,
 .home-v1 .btn-primary {
   background: var(--gold);
-  color: #000 !important;
+  color: #fff !important;
   border-radius: 30px;
   padding: 0 26px;
   height: 48px;
@@ -232,8 +215,10 @@ body.dark.home-v1 .navbar.shrink {
 
 .home-v1 .btn-gold:hover,
 .home-v1 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(200, 169, 106, 0.4);
+  background: #111;
+  color: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(200, 169, 106, 0.35), 0 0 0 1px rgba(200, 169, 106, 0.2);
 }
 
 .home-v1 .btn-outline {
@@ -251,8 +236,10 @@ body.dark.home-v1 .navbar.shrink {
 }
 
 .home-v1 .btn-outline:hover {
-  background: white;
-  color: #000 !important;
+  background: #111;
+  color: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(200, 169, 106, 0.35), 0 0 0 1px rgba(200, 169, 106, 0.2);
 }
 
 /* 2. MEET THE CHEF - FINAL ALIGNMENT */
@@ -337,10 +324,10 @@ body.dark.home-v1 .navbar.shrink {
 }
 
 .home-v1 .chef-btn:hover {
-  background: var(--gold);
-  color: #111 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(200, 169, 106, 0.25);
+  background: #111;
+  color: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(200, 169, 106, 0.35), 0 0 0 1px rgba(200, 169, 106, 0.2);
 }
 
 .home-v1 .chef-btn .arrow {
@@ -458,43 +445,214 @@ body.dark.home-v1 .experiences .card p {
   margin-top: 60px;
 }
 
-/* 6. TESTIMONIAL */
+/* 6. TESTIMONIAL (CENTERPIECE STAGGERED LAYOUT) */
 .home-v1 .testimonials {
-  padding: 100px 20px;
+  padding: 140px 20px; /* Standardized high-end horizontal padding for mobile stability */
+  background: #fdfdfb;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .home-v1 .testimonials {
+        padding: 140px 5%; /* Switch to percentage for wider cinematic viewports */
+    }
+}
+
+/* Luxury background depth effect */
+.home-v1 .testimonials::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(200, 169, 106, 0.08) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.testimonial-grid-modern {
+  display: flex;
+  align-items: stretch; /* Match height naturally on desktop */
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+    .testimonial-grid-modern {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 80px !important; /* Highly visible gap between stacked cards */
+        width: 100%; /* Force full width within section padding */
+    }
+    
+    .testimonial-card-v1 {
+        width: 100% !important;
+        max-width: 530px; /* Optimized for single-column reading */
+        min-width: unset !important;
+        flex: none; /* Prevent flex-shrink/grow issues on mobile */
+    }
+
+    .testimonial-card-v1.active {
+        transform: scale(1.02); /* Minimal scale for mobile to prioritize horizontal padding */
+    }
+}
+
+.testimonial-card-v1 {
+  flex: 1;
+  min-width: 280px; /* Safer minimum for all mobile viewports */
+  background: white;
+  padding: 60px 45px;
+  border-radius: 20px; /* Slightly more rounded for luxury feel */
+  box-shadow: 0 15px 45px rgba(0,0,0,0.04);
+  position: relative;
   text-align: center;
-  background: #F9F7F3; /* Light theme background */
-  transition: background 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 1px solid rgba(0,0,0,0.06);
+  cursor: pointer;
 }
 
-/* Force dark text for visibility in light theme */
-.home-v1 .testimonials h2,
-.home-v1 .testimonials .testimonial-item p,
-.home-v1 .testimonials .testimonial-item span {
-    color: #111111 !important;
+.testimonial-card-v1:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.08);
 }
 
-/* Dark theme override for Testimonials */
+/* Middle Card - Now using Brand Gold */
+.testimonial-card-v1.active {
+  background: var(--primary); /* Luxury Gold */
+  transform: scale(1.08);
+  z-index: 10;
+  box-shadow: 0 40px 80px rgba(200, 169, 106, 0.25);
+  border-color: rgba(200, 169, 106, 0.4);
+  animation: luxuryGlow 4s infinite ease-in-out;
+}
+
+.testimonial-card-v1.active:hover {
+    transform: scale(1.1) translateY(-10px);
+}
+
+@keyframes luxuryGlow {
+    0%, 100% { box-shadow: 0 40px 80px rgba(200, 169, 106, 0.25); }
+    50% { box-shadow: 0 40px 100px rgba(200, 169, 106, 0.45); }
+}
+
+.testimonial-card-v1 .card-body {
+  margin-bottom: 50px;
+}
+
+.testimonial-card-v1 .quote-icon {
+  font-size: 50px;
+  color: var(--primary);
+  opacity: 0.2;
+  margin-bottom: 25px;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.testimonial-card-v1:hover .quote-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.testimonial-card-v1.active .quote-icon {
+  color: white;
+  opacity: 0.6;
+}
+
+.testimonial-card-v1 p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333333; /* Darker for better visibility */
+  margin: 0;
+  font-weight: 400;
+}
+
+.testimonial-card-v1.active p {
+  color: #ffffff;
+  font-weight: 500; /* Bolder on active for luxury density */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.testimonial-card-v1 .card-footer {
+    position: relative;
+    padding-top: 50px;
+}
+
+.testimonial-card-v1 .avatar {
+    position: absolute;
+    top: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.testimonial-card-v1.active .avatar {
+    border-color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.testimonial-card-v1 .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-card-v1 .card-footer h3 {
+    font-size: 19px;
+    margin-bottom: 6px;
+    color: #000000 !important; /* Force pure black for all client names */
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* Slightly bolder for better weight */
+}
+
+.testimonial-card-v1.active .card-footer h3 {
+    color: #000000 !important; /* Overriding previous white for absolute black visibility on gold */
+}
+
+.testimonial-card-v1 .card-footer span {
+    font-size: 12px;
+    color: #222222; /* High clarity dark for side cards */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.testimonial-card-v1.active .card-footer span {
+    color: rgba(255, 255, 255, 0.95); /* High clarity light for gold background */
+}
+
+/* Dark mode override */
 body.dark.home-v1 .testimonials {
-  background: #0B0F19 !important;
+  background: #0B0B0C !important;
 }
 
-body.dark.home-v1 .testimonials h2,
-body.dark.home-v1 .testimonials .testimonial-item p,
-body.dark.home-v1 .testimonials .testimonial-item span {
-    color: #ffffff !important;
+body.dark.home-v1 .testimonial-card-v1:not(.active) {
+    background: #111112;
+    border-color: rgba(255,255,255,0.06);
 }
 
-.home-v1 .testimonial-item {
-    display: none;
-    opacity: 0;
-    transition: opacity 1s ease;
-    max-width: 800px;
-    margin: 0 auto;
+body.dark.home-v1 .testimonial-card-v1:not(.active) p {
+    color: #f0f0f0;
 }
 
-.home-v1 .testimonial-item.active {
-    display: block;
-    opacity: 1;
+body.dark.home-v1 .testimonial-card-v1:not(.active) h3 {
+    color: white;
+}
+
+body.dark.home-v1 .testimonial-card-v1:not(.active) .avatar {
+    border-color: #111112;
+}
+
+body.dark.home-v1 .testimonial-card-v1:not(.active) .card-footer span {
+    color: var(--primary);
 }
 
 /* SECTION HEADERS (PREMIUM TIGHT SPACING) */
@@ -576,29 +734,6 @@ body.dark.home-v1 .testimonials .testimonial-item span {
     color: white !important;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     margin: 0;
-}
-
-.home-v1 .cta-btn {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-
-  height: 52px;
-  padding: 0 45px;
-
-  border-radius: 40px;
-  background: var(--gold);
-  color: #111 !important;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  width: auto;
-}
-
-.home-v1 .cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(200, 169, 106, 0.35);
-  background: #fff;
 }
 
 /* 9. FOOTER */

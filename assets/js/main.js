@@ -11,30 +11,12 @@
 
 // Global Interactions
 document.addEventListener("DOMContentLoaded", () => {
-    
     // Auto-detect depth for relative component loading
     const pathPrefix = (window.location.pathname.includes('/pages/') || window.location.pathname.includes('/pages/')) ? '../' : './';
     
     // Load Components with relative prefix
     loadComponent("navbar", pathPrefix + "components/navbar.html");
     loadComponent("footer", pathPrefix + "components/footer.html");
-
-    // Scroll effect (theme-aware)
-    window.onscroll = () => {
-        const navbar = document.querySelector(".navbar");
-        if (navbar) {
-            const isLight = document.body.classList.contains("light");
-            if (window.scrollY > 50) {
-                navbar.style.background = isLight 
-                    ? "rgba(248, 247, 244, 0.97)" 
-                    : "rgba(10,10,10,0.95)";
-            } else {
-                navbar.style.background = isLight 
-                    ? "rgba(248, 247, 244, 0.92)" 
-                    : "rgba(10,10,10,0.85)";
-            }
-        }
-    };
 });
 
 /**
@@ -54,8 +36,7 @@ function loadComponent(id, path) {
             return res.text();
         })
         .then(data => {
-            // Fix both absolute-like ("/pages") and relative-like ("pages") paths in the fetched HTML before injecting
-            const fixedData = data
+            container.innerHTML = data
                 .replace(/(href|src)="\/pages\//g, `$1="${prefix}pages/`)
                 .replace(/(href|src)="pages\//g, `$1="${prefix}pages/`)
                 .replace(/(href|src)="\/assets\//g, `$1="${prefix}assets/`)
@@ -63,18 +44,44 @@ function loadComponent(id, path) {
                 .replace(/href="\/index.html"/g, `href="${prefix}index.html"`)
                 .replace(/href="index.html"/g, `href="${prefix}index.html"`);
 
-            container.innerHTML = fixedData;
-
-            
             if (id === "navbar") {
                 initNavEvents();
                 highlightActiveLink();
                 initThemeToggle();
                 initRtlToggle();
                 initMobileMenu();
+                initHeaderScroll(); // Trigger consistent scroll behavior
             }
         })
         .catch(err => console.error("Error loading component:", err));
+}
+
+/**
+ * Refined Global Header Scroll Logic
+ */
+function initHeaderScroll() {
+    const navbar = document.querySelector(".navbar");
+    if (!navbar) return;
+
+    const handleScroll = () => {
+        const isLight = document.body.classList.contains("light");
+        const scrolled = window.scrollY > 30; // Closer threshold for instant premium feel
+
+        navbar.classList.toggle("shrink", scrolled);
+
+        if (scrolled) {
+            navbar.style.background = isLight 
+                ? "rgba(248, 247, 244, 0.98)" 
+                : "rgba(10, 10, 10, 0.96)";
+        } else {
+            navbar.style.background = isLight 
+                ? "rgba(248, 247, 244, 0.92)" 
+                : "rgba(10, 10, 10, 0.85)";
+        }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check once on initial load
 }
 
 function initNavEvents() {
@@ -225,14 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll(); // Initial check
-
-    // 2. Navbar Shrink Logic
-    const nav = document.querySelector(".navbar");
-    window.addEventListener("scroll", () => {
-        if (nav) {
-            nav.classList.toggle("shrink", window.scrollY > 50);
-        }
-    });
 
     // 3. Testimonial Slider Logic
     const testimonialItems = document.querySelectorAll(".testimonial-item");

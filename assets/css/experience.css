@@ -147,10 +147,30 @@ body.experience-page .experience-hero .experience-desc {
   }
 }
 
+/* 🎯 9. TYPOGRAPHY ENFORCEMENT (40PX SYSTEM) */
+.experience-page section h2 {
+    font-size: 40px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.3px !important;
+}
+
+.experience-page section p:not(.experience-desc) {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    color: #888 !important; /* Standardized soft luxury gray */
+    font-family: var(--font-body);
+}
+
 /* Mobile Optimizations */
 @media (max-width: 768px) {
     .experience-hero {
         height: 70vh;
         min-height: 500px;
+    }
+    .experience-page section h2 {
+        font-size: 32px !important; /* Scaled for mobile */
+    }
+    .experience-page section p:not(.experience-desc) {
+        font-size: 16px !important; /* Scaled for mobile */
     }
 }

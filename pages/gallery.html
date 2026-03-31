@@ -20,8 +20,8 @@
         <div class="hero-bg" style="background-image: url('../assets/images/gallery/hero%20section%20img.jpg');"></div>
         <div class="hero-content">
             <span class="tag pill-label">Portfolio</span>
-            <h1>Moments We Create</h1>
-            <p>A curated visual journal of luxury dining, private events & culinary artistry.</p>
+            <h1 class="hero-title">Moments We Create</h1>
+            <p class="section-desc">A curated visual journal of luxury dining, private events & culinary artistry.</p>
         </div>
     </section>
 
@@ -32,11 +32,11 @@
                 <!-- LEFT CONTENT -->
                 <div class="spotlight-content">
                     <span class="spotlight-label pill-label">Spotlight</span>
-                    <h2>An Evening to Remember</h2>
-                    <p class="spotlight-desc">
+                    <h2 class="section-title">An Evening to Remember</h2>
+                    <p class="section-desc">
                         An intimate evening designed to linger in memory — where every detail, from the ambient glow of candlelight to the precision of each course, is thoughtfully orchestrated.
                     </p>
-                    <p class="spotlight-sub">
+                    <p class="section-desc" style="margin-top: 15px;">
                         This is not just dining, but a sensory journey crafted around you — personal, immersive, and unmistakably Dineé.
                     </p>
                     <div class="spotlight-highlights">
@@ -56,11 +56,11 @@
     <!-- ===== 3. CURATED VISUAL COLLECTION ===== -->
     <section class="gallery-section curation">
         <div class="container overflow-hidden">
-            <div class="gallery-header reveal">
+            <div class="gallery-header reveal section-header">
                 <span class="tag pill-label">Curated Collection</span>
-                <h3>Explore by Category</h3>
-                <p class="section-quote">Every frame captures more than food — it captures emotion.</p>
-                
+                <h2 class="section-title">Explore by Category</h2>
+                <p class="section-desc">Every frame captures more than food — it captures emotion.</p>
+            </div>    
                 <!-- 4. FILTER TABS (UPGRADED PILLS) -->
                 <div class="gallery-filters">
                     <span class="active" data-filter="all">All</span>
@@ -121,9 +121,9 @@
     <!-- ===== 8. HORIZONTAL SCROLL (FULL WIDTH EXCEPTION) ===== -->
     <section class="horizontal-gallery gallery-section">
         <div class="container">
-            <div class="section-label reveal" style="margin-bottom: 60px;">
+            <div class="section-header reveal">
                 <span class="tag pill-label">The Reel</span>
-                <h3>Behind Every Frame</h3>
+                <h2 class="section-title">Behind Every Frame</h2>
             </div>
         </div>
         <div class="scroll">
@@ -145,9 +145,9 @@
                 </div>
                 <div class="content">
                     <span class="tag pill-label">The Kitchen</span>
-                    <h2>Behind the Craft</h2>
-                    <p>A glimpse into the quiet moments of precision where passion meets the heat of the kitchen. Every plate is a story, every garnish a signature.</p>
-                    <p class="secondary">From sourcing the finest seasonal ingredients to the final drizzle of reduction — our team orchestrates every detail with unwavering dedication to excellence.</p>
+                    <h2 class="section-title">Behind the Craft</h2>
+                    <p class="section-desc">A glimpse into the quiet moments of precision where passion meets the heat of the kitchen. Every plate is a story, every garnish a signature.</p>
+                    <p class="section-desc" style="margin-top: 15px; opacity: 0.8;">From sourcing the finest seasonal ingredients to the final drizzle of reduction — our team orchestrates every detail with unwavering dedication to excellence.</p>
                     <div class="craft-stats">
                         <div class="stat">
                             <span class="stat-number">15+</span>
@@ -167,27 +167,37 @@
         </div>
     </section>
 
-    <!-- ===== 10. SIGNATURE MOMENTS ===== -->
-    <section class="gallery-section moments-intro-section reveal">
-        <div class="container">
-            <div class="signature-moments">
-                <span class="signature-label pill-label">Visual Journal</span>
-                <h2 class="signature-title">Signature Moments</h2>
-                <p class="signature-desc">
-                    A celebration of the alchemy between high-pressure service and quiet creative focus.
+    <!-- ===== 10. SIGNATURE MOMENTS (PREMIUM UPGRADE) ===== -->
+    <section class="gallery-intro gallery-section reveal">
+        <div class="container" style="text-align: center;">
+            <div class="section-header">
+                <span class="tag pill-label">VISUAL JOURNAL</span>
+                <h2 class="section-title">Signature Moments</h2>
+                <p class="section-desc">
+                    A celebration of the alchemy between high-pressure service <br>
+                    and quiet creative focus.
                 </p>
-                <div class="signature-divider"></div>
+            </div>
+
+            <!-- 3 IMAGE PREVIEW -->
+            <div class="preview-strip">
+                <img src="../assets/images/gallery/Signature Moments img -01.jpg" alt="Dining Signature">
+                <img src="../assets/images/gallery/Signature Moments img -02.jpg" alt="Event Signature">
+                <img src="../assets/images/gallery/Signature Moments img -03.jpg" alt="Plate Signature">
             </div>
         </div>
     </section>
 
-    <!-- ===== 11. EXCLUSIVE INVITATION ===== -->
-    <section class="gallery-section exclusive reveal">
+    <!-- ===== 11. EXCLUSIVE INVITATION (CONTAINED CARD) ===== -->
+    <section class="gallery-section exclusive-cta reveal">
         <div class="container">
-            <div class="exclusive-box">
-                <span class="pill-label">Exclusivity</span>
-                <h2>By Invitation & <br> Private Inquiry Only</h2>
-                <a href="../pages/contact.html" class="exclusive-btn">Request an Invitation</a>
+            <div class="cta-card-premium">
+                <div class="cta-content">
+                    <span class="tag pill-label">EXCLUSIVITY</span>
+                    <h2 class="section-title">By Invitation &<br>Private Inquiry Only</h2>
+                    <div class="cta-divider"></div>
+                    <a href="../pages/contact.html" class="cta-btn">Request an Invitation</a>
+                </div>
             </div>
         </div>
     </section>

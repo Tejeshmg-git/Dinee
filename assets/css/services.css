@@ -34,6 +34,9 @@
   position: relative;
   z-index: 2; /* ABOVE OVERLAY */
   max-width: 850px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
@@ -311,15 +314,38 @@ body.light .flow-card p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 30px;
+    padding: 20px 30px;
     margin-bottom: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.04);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeUp 0.8s ease forwards;
+}
+
+.sample-item-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sample-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(200, 169, 106, 0.25);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.sample-item:hover .sample-img {
+    transform: scale(1.1);
+    border-color: rgba(200, 169, 106, 0.7);
+    box-shadow: 0 8px 25px rgba(200, 169, 106, 0.25);
 }
 
 .sample-item::before {
@@ -400,12 +426,30 @@ body.light .sample-item:hover {
     box-shadow: 0 15px 40px rgba(0,0,0,0.06);
 }
 
+body.light .sample-img {
+    border-color: rgba(200, 169, 106, 0.35);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
 @media (max-width: 640px) {
     .sample-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
         padding: 20px;
+    }
+
+    .sample-item-left {
+        gap: 15px;
+    }
+
+    .sample-img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .sample-item .course {
+        font-size: 20px;
     }
 }
 
@@ -447,7 +491,7 @@ body.light.services-page .tag {
     display: inline-block;
     padding: 14px 40px;
     background: #C8A96A;
-    color: #1a1a1a !important;
+    color: #fff !important;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 11px;
@@ -459,10 +503,10 @@ body.light.services-page .tag {
 }
 
 .services-page .btn-outline:hover {
-    background: #ffffff;
-    color: #1a1a1a !important;
+    background: #111;
+    color: #fff !important;
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(200, 169, 106, 0.25);
+    box-shadow: 0 15px 40px rgba(200, 169, 106, 0.35), 0 0 0 1px rgba(200, 169, 106, 0.2);
 }
 
 /* Hero label remains unique and should not inherit pill shape */
@@ -476,7 +520,7 @@ body.light.services-page .tag {
         height: 75vh; 
     }
     .hero-title {
-        font-size: 44px;
+        font-size: clamp(28px, 11vw, 42px);
     }
     .hero-desc {
         font-size: 15.5px;
@@ -514,5 +558,16 @@ body.light.services-page .tag {
 
     .services-page .signature-content p {
         margin-bottom: 30px !important;
+    }
+}
+
+/* 11. ULTRA-COMPACT MOBILE REFINEMENT (320px viewports) */
+@media (max-width: 360px) {
+    .services-hero .hero-content {
+        padding: 0 12px !important;
+    }
+    .services-hero .hero-title {
+        font-size: 28px !important;
+        line-height: 1.1 !important;
     }
 }

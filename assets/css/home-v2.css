@@ -599,6 +599,10 @@ body.dark .feature-card p {
   max-width: 450px;
 }
 
+.form-content p.muted {
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
 .form-box {
   background: rgba(255,255,255,0.03);
   backdrop-filter: blur(10px);

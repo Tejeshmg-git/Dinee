@@ -89,16 +89,22 @@ function initNavEvents() {
 }
 
 function highlightActiveLink() {
-    const currentLoc = window.location.href;
+    const currentUrl = window.location.href;
     const navLinks = document.querySelectorAll('.nav-links a, .mobile-links a');
 
     navLinks.forEach(link => {
         // Normalize the link's absolute URL for comparison
         const linkUrl = new URL(link.href, window.location.origin).href;
-        const currentUrl = new URL(window.location.href).href;
 
         if (currentUrl === linkUrl || (currentUrl.endsWith('/') && linkUrl.endsWith('index.html'))) {
             link.classList.add('active');
+            
+            // If the link is inside a dropdown, highlight the parent dropdown toggle as well
+            const dropdown = link.closest('.dropdown');
+            if (dropdown) {
+                const parentToggle = dropdown.querySelector('a');
+                if (parentToggle) parentToggle.classList.add('active');
+            }
         }
     });
 }

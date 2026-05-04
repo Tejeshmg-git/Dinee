@@ -145,7 +145,7 @@
 
 .home-v1 .hero p {
   font-size: 16px;
-  color: rgba(255,255,255,0.75) !important;
+  color: rgba(255,255,255,0.9) !important; /* Increased intensity for visibility */
   max-width: 600px;
   margin: 0; /* Reset margin, controlled by gap */
 }
@@ -296,7 +296,7 @@
 }
 
 .home-v1 .desc { 
-  opacity: 0.8; 
+  opacity: 0.95; /* Improved visibility */
   line-height: 1.8; 
   margin: 0;
   max-width: 480px; /* Better readability */
@@ -474,7 +474,7 @@ body.dark.home-v1 .experiences .card p {
   display: flex;
   align-items: stretch; /* Match height naturally on desktop */
   justify-content: center;
-  gap: 30px;
+  gap: 50px; /* Increased for better readability */
   max-width: 1200px;
   margin: 60px auto 0;
   flex-wrap: wrap;
@@ -567,6 +567,13 @@ body.dark.home-v1 .experiences .card p {
   color: #333333; /* Darker for better visibility */
   margin: 0;
   font-weight: 400;
+  
+  /* Enforce exactly 5 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 144px; /* (16px * 1.8 line-height * 5 lines) */
 }
 
 .testimonial-card-v1.active p {

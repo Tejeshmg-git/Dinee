@@ -208,7 +208,7 @@ body.light .services-hero .hero-desc {
 }
 
 .flow-card p {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   font-size: 14.5px;
   line-height: 1.6;
   margin: 0;
@@ -239,7 +239,7 @@ body.light .flow-card h4 {
 }
 
 body.light .flow-card p {
-  color: #555 !important;
+  color: #2D2D2D !important;
 }
 
 /* MOBILE RESPONSIVE FLOW */
@@ -297,7 +297,7 @@ body.light .flow-card p {
 }
 
 .sample-content p {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
     font-size: 16px;
     max-width: 650px;
     margin: 0 auto 60px;
@@ -408,7 +408,7 @@ body.light .sample-experience .section-title {
 }
 
 body.light .sample-content p {
-    color: #555 !important;
+    color: #2D2D2D !important;
 }
 
 body.light .sample-item {

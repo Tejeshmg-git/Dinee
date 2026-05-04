@@ -22,14 +22,17 @@
   --bg-dark: #0b0b0c;
   --text-dark: #ffffff;
   --surface-dark: #111112;
-  --muted-dark: #A1A1AA;
+  --muted-dark: #E2E2E2; /* High-intensity grey for maximum visibility */
   --border-dark: rgba(255,255,255,0.08);
 
   --bg-light: #f8f7f4;
   --text-light: #1a1a1a;
   --surface-light: #ffffff;
-  --muted-light: #525252; /* Slightly darker muted text for light mode */
+  --muted-light: #2D2D2D; /* High-intensity grey for maximum visibility */
   --border-light: rgba(0,0,0,0.08);
+
+  /* Nav Constants */
+  --nav-btn-height: 44px;
 }
 
 /* ================= GLOBAL RTL SUPPORT ================= */
@@ -1094,15 +1097,15 @@ section {
   justify-content: center;
   background: var(--primary);
   color: #fff !important;
-  height: 49px; /* Refined luxury height for header compatibility */
-  padding: 0 28px;
+  height: var(--nav-btn-height); /* Standardized height */
+  padding: 0 24px;
   border-radius: 50px;
   cursor: pointer;
   font-weight: 600;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 12px; /* Slightly refined */
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   border: none;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   box-shadow: 0 8px 20px rgba(200, 169, 106, 0.15);
@@ -1148,7 +1151,7 @@ body.light .cta-btn:hover {
 
 @media (min-width: 1024px) {
   .nav-wrapper {
-    height: 90px; /* Luxurious breathing for desktop */
+    height: 100px; /* Luxurious breathing for desktop */
     transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
@@ -1157,6 +1160,7 @@ body.light .cta-btn:hover {
 .navbar.shrink {
   background: var(--bg);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  --nav-btn-height: 38px; /* Shrink button size */
 }
 
 .navbar.shrink .nav-wrapper {
@@ -1170,7 +1174,7 @@ body.light .cta-btn:hover {
 }
 
 .navbar.shrink .logo-img {
-  height: 32px;
+  height: 36px;
 }
 
 /* LOGO SECTION */
@@ -1192,11 +1196,11 @@ body.light .cta-btn:hover {
 }
 
 .logo-img {
-  height: 48px; /* Standardized initial size */
+  height: 42px; /* Standardized to match visual weight of buttons */
   width: auto;
   object-fit: contain;
   border: none !important;
-  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brand {
@@ -1228,11 +1232,15 @@ body.light .cta-btn:hover {
   color: #d1d1d1;
   text-decoration: none;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   font-weight: 500;
   position: relative; /* For underline animation */
+  display: flex;
+  align-items: center;
+  height: var(--nav-btn-height); /* Shared height for hit area */
+  padding: 0 5px;
   transition: 0.3s;
 }
 
@@ -1288,15 +1296,21 @@ body.light .cta-btn:hover {
 }
 
 .nav-right button {
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.15);
   background: transparent;
   color: var(--text);
-  font-size: 12px;
-  padding: 6px 14px;
-  border-radius: 20px;
+  font-size: 11px;
+  height: var(--nav-btn-height);
+  padding: 0 16px;
+  border-radius: 50px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
   outline: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .nav-right button:hover {
@@ -1306,6 +1320,9 @@ body.light .cta-btn:hover {
 
 /* Tablet Landscape / Small Laptop Responsive Navbar Fix */
 @media (min-width: 1024px) and (max-width: 1200px) {
+  .navbar {
+    --nav-btn-height: 40px;
+  }
   .nav-links {
     gap: 15px;
   }
@@ -1323,12 +1340,12 @@ body.light .cta-btn:hover {
     gap: 8px;
   }
   .nav-right button {
-    padding: 6px 10px;
+    padding: 0 12px;
     font-size: 11px;
   }
   .nav-right .cta-btn {
     padding: 0 16px;
-    height: 42px;
+    height: var(--nav-btn-height);
     font-size: 11px;
     white-space: nowrap;
     display: inline-flex !important;
@@ -1372,11 +1389,20 @@ body.light .cta-btn:hover {
 }
 
 .menu-toggle {
-  display: block; /* Visible on mobile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--nav-btn-height);
+  width: var(--nav-btn-height);
   font-size: 24px;
   cursor: pointer;
   color: var(--text);
-  order: 2; /* Ensure it stays right of logo if needed */
+  order: 2;
+  transition: 0.3s;
+}
+
+.menu-toggle:hover {
+  color: var(--primary);
 }
 
 @media (min-width: 1024px) {
@@ -5738,8 +5764,9 @@ body.dark .contact-exclusive-split .section-title {
   font-size: 18px;
   line-height: 1.8;
   color: #555;
-  margin-bottom: 40px;
+  margin: 0 auto 40px; /* Centered with margin auto */
   max-width: 550px;
+  text-align: inherit; /* Inherit alignment from parent (section-header) */
 }
 
 body.dark .section-desc {

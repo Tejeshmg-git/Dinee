@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Dineé</title>
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+
+    <main class="auth-page">
+        <!-- Top Actions -->
+        <div class="auth-actions">
+            <button id="theme-toggle" title="Toggle Theme">☀️</button>
+            <button id="rtl-toggle" title="Toggle Direction">RTL</button>
+        </div>
+
+        <div class="auth-card">
+            <a href="../index.html" class="auth-logo">
+                <img src="../assets/images/logo.png" alt="Dineé Logo">
+                <span class="brand">Dineé</span>
+            </a>
+
+            <div class="auth-header">
+                <h1>Create Account</h1>
+                <p>Begin your journey into precision curation.</p>
+            </div>
+
+            <form class="auth-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="name@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="••••••••" required>
+                        <span class="toggle-password"><i class='bx bx-show'></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirm-password" placeholder="••••••••" required>
+                        <span class="toggle-password"><i class='bx bx-show'></i></span>
+                    </div>
+                </div>
+
+                <div class="form-utils">
+                    <label class="checkbox-group">
+                        <input type="checkbox" required>
+                        I agree to the Terms and Privacy
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-btn">Create Account</button>
+
+                <div class="auth-divider">
+                    <span>Or Continue With</span>
+                </div>
+
+                <div class="social-auth">
+                    <a href="#" class="social-btn">
+                        <i class='bx bxl-google' style="color: #DB4437;"></i>
+                        Google
+                    </a>
+                    <a href="#" class="social-btn">
+                        <i class='bx bxl-apple'></i>
+                        Apple
+                    </a>
+                </div>
+
+                <div class="auth-footer">
+                    Already have an account? <a href="login.html">Log in</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Password visibility toggle
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.className = 'bx bx-hide';
+                } else {
+                    input.type = 'password';
+                    icon.className = 'bx bx-show';
+                }
+            });
+        });
+
+        // Initialize toggles manually since no navbar is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initThemeToggle === 'function') initThemeToggle();
+            if (typeof initRtlToggle === 'function') initRtlToggle();
+        });
+    </script>
+</body>
+</html>

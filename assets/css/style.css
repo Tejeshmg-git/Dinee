@@ -3535,7 +3535,7 @@ body.light .spotlight-highlights span {
 /* 3. CURATED VISUAL COLLECTION */
 .gallery-header {
   margin-bottom: 60px;
-  text-align: left;
+  text-align: center;
 }
 
 .horizontal-gallery .section-label {
@@ -3549,8 +3549,8 @@ body.light .spotlight-highlights span {
 }
 
 .gallery-header .section-quote {
-  text-align: left;
-  margin: 0 0 30px;
+  text-align: center;
+  margin: 0 auto 30px;
   max-width: 600px;
   color: #777 !important;
   font-family: var(--font-heading);
@@ -3561,6 +3561,7 @@ body.light .spotlight-highlights span {
 
 .gallery-filters {
   display: flex;
+  justify-content: center;
   gap: 15px;
   margin: 30px 0 50px;
   flex-wrap: wrap;
